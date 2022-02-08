@@ -1,0 +1,60 @@
+category,CHARACTERISTIC_NAME
+Other_Parameters,"ACIDITY, HYDROGEN ION (H+)"
+Metals_Minerals,"ALKALINITY, TOTAL (AS CACO3)"
+Metals_Minerals,ALUMINUM
+HABs_Parameters,ANATOXIN-A
+Trophic_Parameters,APPARENT COLOR
+Metals_Minerals,ARSENIC
+HABs_Parameters,BMAA (BETA-METHYL-AMINO-(L)-ALANINE)
+Metals_Minerals,CALCIUM
+Other_Nutrient_Parameters,"CARBON, DISSOLVED ORGANIC (DOC)"
+Other_Nutrient_Parameters,"CARBON, TOTAL ORGANIC"
+Salt_Parameters,CHLORIDE
+Trophic_Parameters,CHLOROPHYLL A
+In_Situ_Parameters,CHLOROPHYLL A (PROBE)
+HABs_Parameters,"CHLOROPHYLL A (PROBE) CONCENTRATION, CHLOROPHYTE (GREEN ALGAE)"
+HABs_Parameters,"CHLOROPHYLL A (PROBE) CONCENTRATION, CHRYSOPHYTA (BROWN ALGAE)"
+HABs_Parameters,"CHLOROPHYLL A (PROBE) CONCENTRATION, CRYPTOPHYTA (CRYPTOPHYTES)"
+HABs_Parameters,"CHLOROPHYLL A (PROBE) CONCENTRATION, CYANOBACTERIA (BLUEGREEN)"
+HABs_Parameters,"CHLOROPHYLL A (PROBE) CONCENTRATION, DINOPHYTA (DIATOMS)"
+HABs_Parameters,"CHLOROPHYLL A (PROBE) CONCENTRATION, TOTAL"
+Metals_Minerals,COPPER
+HABs_Parameters,CYLINDROSPERMOPSIN
+Trophic_Parameters,"DEPTH, SECCHI DISK DEPTH"
+In_Situ_Parameters,DISSOLVED OXYGEN
+In_Situ_Parameters,DISSOLVED OXYGEN SATURATION
+Metals_Minerals,FLUORIDE
+Metals_Minerals,HARDNESS (AS CACO3)
+Metals_Minerals,IRON
+Metals_Minerals,MAGNESIUM
+Metals_Minerals,MANGANESE
+HABs_Parameters,MICROCYSTIN
+HABs_Parameters,MICROCYSTIN DLA
+HABs_Parameters,MICROCYSTIN DLR
+HABs_Parameters,MICROCYSTIN LA
+HABs_Parameters,MICROCYSTIN LR
+HABs_Parameters,MICROCYSTIN MLR
+HABs_Parameters,MICROCYSTIN RR
+HABs_Parameters,MICROCYSTIN YR
+Other_Nutrient_Parameters,"NITROGEN, AMMONIA (AS N)"
+Other_Nutrient_Parameters,"NITROGEN, KJELDAHL, TOTAL"
+Other_Nutrient_Parameters,"NITROGEN, NITRATE-NITRITE"
+Other_Nutrient_Parameters,"NITROGEN, NITRATE (AS N)"
+Other_Nutrient_Parameters,"NITROGEN, NITRITE"
+Trophic_Parameters,"NITROGEN, TOTAL"
+Other_Nutrient_Parameters,"NITROGEN, TOTAL DISSOLVED"
+In_Situ_Parameters,OXIDATION REDUCTION POTENTIAL (ORP)
+In_Situ_Parameters,PH
+Other_Nutrient_Parameters,"PHOSPHORUS, DISSOLVED"
+Trophic_Parameters,"PHOSPHORUS, TOTAL"
+HABs_Parameters,PHYCOCYANIN
+In_Situ_Parameters,PHYCOCYANIN (PROBE)
+Metals_Minerals,POTASSIUM
+Metals_Minerals,SILICA
+Salt_Parameters,SODIUM
+Salt_Parameters,SPECIFIC CONDUCTANCE
+Metals_Minerals,SULFATE (AS SO4)
+In_Situ_Parameters,TEMPERATURE
+Trophic_Parameters,TRUE COLOR
+In_Situ_Parameters,TURBIDITY
+Other_Parameters,UV 254

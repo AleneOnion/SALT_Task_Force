@@ -1,0 +1,116 @@
+---
+title: "Data_Summary_for_SALT_Task_Force"
+author: "Alene Onion, Matt Kraft, Sabrina Xie"
+date: "2/7/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#  {.tabset}
+
+## Map
+
+This map shows all the lakes in the Adirondacks with chloride data in the LMAS database
+
+```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+setwd("C:/Users/leneo/Dropbox/Alene/Rscripts/Current")
+source("new_database/Reading.LMAS.Data.R")
+setwd("C:/Users/leneo/Dropbox/Alene/Rscripts/Probability.Sampling")
+
+sites<-newdata %>% 
+  filter(CHARACTERISTIC_NAME == "CHLORIDE" %>% 
+         #INFORMATION_TYPE=="BS",
+         RSLT_VALIDATOR_QUALIFIER!="R"|is.na(RSLT_VALIDATOR_QUALIFIER)) %>% 
+  mutate(RSLT_RESULT_VALUE=ifelse(RSLT_VALIDATOR_QUALIFIER=="U",0,RSLT_RESULT_VALUE)) %>% 
+  filter(!is.na(RSLT_RESULT_VALUE)) %>% 
+  select(LAKE_HISTORY_ID,LAKE_FIN,LOCATION_X_COORDINATE,LOCATION_Y_COORDINATE) %>% distinct()
+blueline<-read.csv("C:/Users/amonion/OneDrive - New York State Office of Information Technology Services/Lakes.Database/data/2021/data_requests/ADK_Lakes_Blue_Line.csv")
+blueline<-blueline %>% mutate(LAKE_FIN=FIN) %>% select(LAKE_FIN,WATER) %>% distinct()
+sites<-merge(blueline,sites,by=c("LAKE_FIN"),all.x = TRUE)
+
+library(ggmap)
+library(ggrepel)
+
+nybox<-make_bbox(sites,lon=LOCATION_X_COORDINATE,lat=LOCATION_Y_COORDINATE)
+
+print(ny.map1<-qmap(nybox,source="osm",maptype="terrain",color="bw")+
+  geom_point(data=sites,aes(x=LOCATION_X_COORDINATE,y=LOCATION_Y_COORDINATE,label=LAKE_HISTORY_ID),size=4))
+
+
+
+```
+
+## Ranked Adirondack Lakes
+
+In the first list, lakes are ranked by average epilimnetic chloride concentrations (mg/L) since 2010.
+In the second list, lakes are ranked by average hypolimnetic chloride concentrations (mg/L) since 2010.
+
+Lake Clear (1003CLE0199) is ranked #20(out of 125) in average epilimentic chloride concentrations and #17(out of 92) in hypolimnetic chloride concentrations.
+
+```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+sites<-newdata %>% 
+  filter(CHARACTERISTIC_NAME == "CHLORIDE",
+         (substr(SAMPLE_DATE,1,4)>2010),
+         #INFORMATION_TYPE=="BS",
+         RSLT_VALIDATOR_QUALIFIER!="R"|is.na(RSLT_VALIDATOR_QUALIFIER)) %>% 
+  mutate(RSLT_RESULT_VALUE=ifelse(RSLT_VALIDATOR_QUALIFIER=="U",0,RSLT_RESULT_VALUE)) %>% 
+  filter(!is.na(RSLT_RESULT_VALUE))
+blueline<-read.csv("C:/Users/amonion/OneDrive - New York State Office of Information Technology Services/Lakes.Database/data/2021/data_requests/ADK_Lakes_Blue_Line.csv")
+blueline<-blueline %>% mutate(LAKE_FIN=FIN) %>% select(LAKE_FIN,WATER) %>% distinct()
+sites<-merge(blueline,sites,by=c("LAKE_FIN"),all.x = TRUE)
+
+sites_epi<-sites %>% 
+  filter(INFORMATION_TYPE=="OW") %>% 
+  group_by(LAKE_HISTORY_ID) %>% 
+  mutate(mean_chl=mean(RSLT_RESULT_VALUE, na.rm = TRUE)) %>% 
+  ungroup() %>% 
+  filter(!is.na(mean_chl)) %>% 
+  select(LAKE_HISTORY_ID, LAKE_WATERBODY_NAME, mean_chl, RSLT_RESULT_UNIT) %>% 
+  distinct() %>% 
+  arrange(-mean_chl)
+
+sites_hyp<-sites %>% 
+  filter(INFORMATION_TYPE=="BS") %>% 
+  group_by(LAKE_HISTORY_ID) %>% 
+  mutate(mean_chl=mean(RSLT_RESULT_VALUE, na.rm = TRUE)) %>% 
+  ungroup() %>% 
+  filter(!is.na(mean_chl)) %>% 
+  select(LAKE_HISTORY_ID, LAKE_WATERBODY_NAME, mean_chl, RSLT_RESULT_UNIT) %>% 
+  distinct() %>% 
+  arrange(-mean_chl)
+```
+
+Adirondack lakes in the LMAS database ranked by average epilimnetic Chloridide concentrations since 2010
+
+```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+DT::datatable(sites_epi, extensions = 'Buttons', options = list(dom = 'Bfrtip',buttons = c('copy', 'csv', 'excel', 'pdf', 'print')))
+```
+
+Adirondack lakes in the LMAS database ranked by average epilimnetic Chloridide concentrations since 2010
+
+```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+DT::datatable(sites_hyp, extensions = 'Buttons', options = list(dom = 'Bfrtip',buttons = c('copy', 'csv', 'excel', 'pdf', 'print')))
+
+```
+
+
+
+## Lake Clear Chloride Measurements
+
+```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+
+sites_print<-sites %>% 
+  filter(LAKE_HISTORY_ID=="1003CLE0199") %>% 
+  select(LAKE_WATERBODY_NAME,LOCATION_X_COORDINATE,LOCATION_Y_COORDINATE,SAMPLE_DATE,INFORMATION_TYPE,
+         CHARACTERISTIC_NAME,RSLT_RESULT_VALUE,RSLT_RESULT_UNIT) %>% 
+  mutate(Water_Layer=ifelse(INFORMATION_TYPE=="OW","epilimnion","hypolimnion")) %>% 
+  select(-INFORMATION_TYPE) %>% 
+  distinct()
+
+DT::datatable(sites_print, extensions = 'Buttons', options = list(dom = 'Bfrtip',buttons = c('copy', 'csv', 'excel', 'pdf', 'print')))
+
+
+```

@@ -1,0 +1,157 @@
+---
+title: "Data_Summary_for_SALT_Task_Force"
+author: "Alene Onion, Matt Kraft, Sabrina Xie"
+date: "2/7/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#  {.tabset}
+
+## NYSDEC Sampling Programs
+
+The Citizen Science Lake Assessment Program (CSLAP) is a volunteer monitoring program coordinated by NYSDEC and theNYS Federation of Lakes Association. This sampling program is non-targeted; sampling locations are determined by lake association voluntary participation.
+
+The Lake Classification and Inventory (LCI) Program is a targeted sampling program conducted by NYSDEC staff. Sampling is rotated so that all major drainage basins in the state are sampled once every five years. From 1999-2020, sampling locations were targeted to unassessed waters and class A waters. Starting in 2021, we selected sites using a random probabilistic approach. This method randomly selects a subpopulation of lakes in order to generally characterize the entire population of lakes in NYS. 
+
+The Regional Monitoring Network (RMN) is a project in collaboration with USEPA to monitor the potential impacts of climate change in the Northeaster US. Locations are undisturbed, reference waterbodies and are sampled continuously for in situ parameters and annually for collected samples.
+
+## Map
+
+This map shows all the lakes in the Adirondacks sampled by the LCI and CSLAP programs. The table below lists all the locations including lat/lon coordinates.
+
+```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+
+setwd("C:/Users/leneo/Dropbox/Alene/Rscripts/Current")
+source("new_database/Reading.LMAS.Data.R")
+setwd("C:/Users/leneo/Dropbox/Alene/Rscripts/Probability.Sampling")
+
+rm(list=setdiff(ls(), c("newdata")))
+library(tidyverse)
+draft<-newdata %>% 
+  mutate(DATA_PROVIDER=ifelse(DATA_PROVIDER=="CSL","CSLAP",DATA_PROVIDER),
+         DATA_PROVIDER=ifelse(substr(SAMPLE_DATE,1,4)=='2021'&LAKE_HISTORY_ID=="0903FOL0186","RMN",DATA_PROVIDER))
+
+sites<-draft %>% 
+  filter(CHARACTERISTIC_NAME == "DEPTH, SECCHI DISK DEPTH") %>% 
+         #INFORMATION_TYPE=="BS",
+         #RSLT_VALIDATOR_QUALIFIER!="R"|is.na(RSLT_VALIDATOR_QUALIFIER)) %>% 
+  #mutate(RSLT_RESULT_VALUE=ifelse(RSLT_VALIDATOR_QUALIFIER=="U",0,RSLT_RESULT_VALUE)) %>% 
+  filter(!is.na(RSLT_RESULT_VALUE),
+         !is.na(DATA_PROVIDER)) %>% 
+  select(LAKE_HISTORY_ID,LAKE_FIN,LOCATION_X_COORDINATE,LOCATION_Y_COORDINATE,DATA_PROVIDER) %>% distinct()
+blueline<-read.csv("C:/Users/leneo/Dropbox/Alene/Rscripts/Probability.Sampling/data_requests/data_requests/ADK_Lakes_Blue_Line.csv")
+blueline<-blueline %>% mutate(LAKE_FIN=FIN) %>% select(LAKE_FIN,WATER) %>% distinct()
+sites<-merge(blueline,sites,by=c("LAKE_FIN"),all.x = TRUE)
+sites<-sites %>% filter(!is.na(DATA_PROVIDER)) %>% 
+  distinct(LAKE_FIN,LAKE_HISTORY_ID,DATA_PROVIDER,.keep_all = TRUE)
+sites_map<-sites %>% 
+  mutate(DATA_PROVIDER=ifelse(LAKE_HISTORY_ID=="0903FOL0186","RMN",DATA_PROVIDER))
+library(ggmap)
+library(ggrepel)
+
+nybox<-make_bbox(sites_map,lon=LOCATION_X_COORDINATE,lat=LOCATION_Y_COORDINATE)
+
+print(ny.map1<-qmap(nybox,source="osm",maptype="terrain",color="bw")+
+  geom_point(data=sites_map,aes(x=LOCATION_X_COORDINATE,y=LOCATION_Y_COORDINATE,label=LAKE_HISTORY_ID,colour=DATA_PROVIDER),size=4))
+
+
+DT::datatable(sites, extensions = 'Buttons', options = list(dom = 'Bfrtip',buttons = c('copy', 'csv', 'excel', 'pdf', 'print')))
+```
+
+## Sampling Frequency
+
+The following table describes sampling frequency in the Adirondack Park.
+For each sampling program, the table lists the earliest sampling year, the number of sampling years (average and range), and the number of samples collected each year (average and range).
+
+```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+sites2<-sites %>% select(LAKE_HISTORY_ID,DATA_PROVIDER) %>% distinct()
+sites2<-merge(sites2,draft,by=c('LAKE_HISTORY_ID','DATA_PROVIDER'),all.x=TRUE)
+sites2<-sites2 %>% 
+  filter(RSLT_VALIDATOR_QUALIFIER!="R"|is.na(RSLT_VALIDATOR_QUALIFIER)) %>% 
+  mutate(RSLT_RESULT_VALUE=ifelse(!is.na(RSLT_VALIDATOR_QUALIFIER)&RSLT_VALIDATOR_QUALIFIER=="U",0,RSLT_RESULT_VALUE),
+         year=as.numeric(substr(SAMPLE_DATE,1,4))) %>% 
+  filter(!is.na(RSLT_RESULT_VALUE))
+
+sites3<-sites2 %>% filter(CHARACTERISTIC_NAME == "DEPTH, SECCHI DISK DEPTH") %>% 
+  select(LAKE_HISTORY_ID,SAMPLE_DATE,year,DATA_PROVIDER) %>% distinct()
+
+general_lake<-sites3 %>% 
+  group_by(DATA_PROVIDER,LAKE_HISTORY_ID,year) %>% 
+  summarize(samples=n()) %>% 
+  ungroup() %>% 
+  group_by(DATA_PROVIDER,LAKE_HISTORY_ID) %>% 
+  summarize(earliest_date=min(year),
+            years=n(),
+            samples=mean(samples)) %>% 
+  ungroup() 
+general<-general_lake %>% 
+  group_by(DATA_PROVIDER) %>% 
+  summarize(n_lakes=as.character(n()),
+            earlist_date=as.character(min(earliest_date)),
+            years_av=as.character(signif(mean(years),2)),
+            years_range=as.character(paste(min(years),max(years),sep="-")),
+            samples_av=as.character(signif(mean(samples),2)),
+            samples_range = as.character(paste(min(samples),max(as.integer(samples)),sep="-"))) %>% 
+  ungroup() %>% 
+  mutate(site_selection=ifelse(DATA_PROVIDER=="CSLAP","non-targeted",NA),
+         site_selection=ifelse(DATA_PROVIDER=="LCI","targeted",site_selection),
+         site_selection=ifelse(DATA_PROVIDER=="RMN","targeted",site_selection))
+
+DT::datatable(general, extensions = 'Buttons', options = list(dom = 'Bfrtip',buttons = c('copy', 'csv', 'excel', 'pdf', 'print')))
+```
+
+The following table gives the earliest sample date (earliest_date), years sampled (nyears), and average number of samples per year (samples_average).
+
+```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+general_lake <-general_lake %>% 
+  rename(samples_average=samples,
+         n_years=years)
+lakenames<-newdata %>% select(LAKE_HISTORY_ID,LAKE_WATERBODY_NAME) %>% distinct()
+general_lake<-merge(general_lake,lakenames,by=c('LAKE_HISTORY_ID'),all.x=TRUE)
+general_lake<-general_lake %>% 
+  select(LAKE_HISTORY_ID,LAKE_WATERBODY_NAME,DATA_PROVIDER,earliest_date,n_years,samples_average) %>% 
+  distinct()
+DT::datatable(general_lake, extensions = 'Buttons', options = list(dom = 'Bfrtip',buttons = c('copy', 'csv', 'excel', 'pdf', 'print')))
+
+```
+
+## Parameters Sampled
+
+The following table lists the parameters collected by each program in the Adirondack Park and the specific years each of the parameters were collected.
+
+```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+general2<-sites2 %>% 
+  select(DATA_PROVIDER,CHARACTERISTIC_NAME,year) %>% distinct() %>% 
+  group_by(DATA_PROVIDER,CHARACTERISTIC_NAME) %>% 
+  mutate(year=paste(min(year),max(year),sep="-")) %>% 
+  ungroup() %>% 
+  select(DATA_PROVIDER,CHARACTERISTIC_NAME,year) %>% distinct() %>% 
+  ungroup() %>% 
+  arrange(CHARACTERISTIC_NAME) %>% 
+  spread(DATA_PROVIDER,year) %>% 
+  mutate(CSLAP=ifelse(is.na(CSLAP),"",CSLAP)) %>% 
+  mutate(LCI=ifelse(is.na(LCI),"",LCI)) %>% 
+  mutate(RMN=ifelse(is.na(RMN),"",RMN) ) %>% 
+  mutate(CSLAP=gsub("-2020","-2021",CSLAP))%>% 
+  mutate(RMN=gsub("-2020","-2021",RMN))
+params<-read.csv("C:/Users/leneo/Dropbox/Alene/Rscripts/Probability.Sampling/data_requests/data_requests/param.groupings.csv")
+general2<-merge(general2,params,by=c('CHARACTERISTIC_NAME'),all.x=TRUE)
+general2<-general2 %>% 
+  filter(!is.na(category)) %>% 
+  select(category,CHARACTERISTIC_NAME,CSLAP,LCI,RMN) %>% 
+  mutate(category=factor(category,levels=c('Salt_Parameters','Metals_Minerals','In_Situ_Parameters',
+                                              'Trophic_Parameters','Other_Nutrient_Parameters',
+                                              'HABs_Parameters','Other_Parameters'))) %>% 
+  arrange(category,CHARACTERISTIC_NAME) 
+  
+DT::datatable(general2, extensions = 'Buttons', options = list(dom = 'Bfrtip',buttons = c('copy', 'csv', 'excel', 'pdf', 'print')))
+
+```
+
+
+
+
