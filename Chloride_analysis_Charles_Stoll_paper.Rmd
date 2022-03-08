@@ -1,0 +1,362 @@
+---
+title: "Chloride Analysis for Charlie's Paper"
+author: "Alene Onion, Matt Kraft"
+date: "3/7/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#  {.tabset}
+
+## Map
+
+Sites included in this analysis.
+
+```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+
+# setwd("C:/Users/leneo/Dropbox/Alene/Rscripts/Current")
+# source("new_database/Reading.LMAS.Data.R")
+# setwd("C:/Users/leneo/Dropbox/Alene/Rscripts/Probability.Sampling")
+
+rm(list=setdiff(ls(), c("newdata")))
+library(tidyverse)
+draft<-newdata %>% 
+  filter(CHARACTERISTIC_NAME=="CHLORIDE") %>% 
+  mutate(year=as.numeric(substr(SAMPLE_DATE,1,4))) %>% 
+  filter(year>2001) %>% 
+  filter(RSLT_VALIDATOR_QUALIFIER!="R"|is.na(RSLT_VALIDATOR_QUALIFIER)) %>% 
+  mutate(RSLT_RESULT_VALUE=ifelse(RSLT_VALIDATOR_QUALIFIER=="U",RSLT_METHOD_DETECTION_LIMIT/2,RSLT_RESULT_VALUE))%>%  
+  filter(!is.na(RSLT_RESULT_VALUE)) %>% 
+  select(LAKE_HISTORY_ID,LOCATION_HISTORY_ID,LOCATION_WATERBODY_CLASSIFICATION,LOCATION_X_COORDINATE,LOCATION_Y_COORDINATE,SAMPLE_DATE,RSLT_RESULT_VALUE) %>% distinct()
+
+library(ggmap)
+library(ggrepel)
+library(rgdal)
+library(sp)
+library(spatialEco)
+#pulling Chloride ecoregions
+
+sites<-draft %>% select(LAKE_HISTORY_ID,LOCATION_HISTORY_ID,LOCATION_X_COORDINATE,LOCATION_Y_COORDINATE) %>% distinct()
+chl<-readOGR("C:/Users/leneo/Dropbox/Alene/Rscripts/SALT_Task_Force/ny_eco_l3","ny_eco_l3")
+
+#change coords to web mercator for the map
+#all of our layers are NAD83 so have to convert to web mercator
+chl<-sp::spTransform(chl, sp::CRS("+proj=longlat +datum=WGS84 +no_defs"))
+
+  #convert sites to a points layer and then do left join with chls layer
+coordinates(sites)=~LOCATION_X_COORDINATE+LOCATION_Y_COORDINATE
+proj4string(sites)<-CRS("+proj=longlat")
+#first, turn off s2 processing
+sf::sf_use_s2(FALSE)
+chl_merge<-point.in.poly(sites,chl)
+
+#convert attribute table to a data frame
+chl_data<-fortify(chl_merge@data)
+chl_data<-chl_data %>% select(LAKE_HISTORY_ID,LOCATION_HISTORY_ID,agg_L3_Key) %>% distinct()
+#generate sites list again
+draft<-merge(draft,chl_data,by=c('LAKE_HISTORY_ID','LOCATION_HISTORY_ID'),all=TRUE)
+
+
+#now remove those that are outside the map region
+draft<-draft %>% 
+  filter(!is.na(agg_L3_Key)) %>% 
+    mutate(agg_L3_Name=ifelse(agg_L3_Key=="60","8.0a Eastern Temperate Forests (8.1.3)",""),
+         agg_L3_Name=ifelse(agg_L3_Key=="83","8.0b Eastern Temperate Forests (8.1.10, 8.1.1)",agg_L3_Name),
+         agg_L3_Name=ifelse(agg_L3_Key=="58","5.3 Atlantic Highlands (5.3.1, 5.3.3)",agg_L3_Name),
+         agg_L3_Name=ifelse(agg_L3_Key=="59","8.0c Eastern Temperate Forests (8.1.7, 8.3.1, 8.4.1, 8.5.4)",agg_L3_Name),
+         agg_state="NYS Combined")
+#save a copy for maximum calculations
+full<-draft
+#and generate median for every sites
+draft<-draft %>% 
+  group_by(LAKE_HISTORY_ID,LOCATION_HISTORY_ID,agg_L3_Key,agg_L3_Name,agg_state,LOCATION_X_COORDINATE,LOCATION_Y_COORDINATE,LOCATION_WATERBODY_CLASSIFICATION) %>% 
+  summarize(medians=median(RSLT_RESULT_VALUE)) %>% 
+  ungroup() %>% 
+  mutate(medians=as.numeric(medians))
+#pull maximum value for every site
+full<- full %>% 
+  group_by(LAKE_HISTORY_ID,LOCATION_HISTORY_ID,agg_L3_Key,agg_L3_Name,LOCATION_X_COORDINATE,LOCATION_Y_COORDINATE,LOCATION_WATERBODY_CLASSIFICATION) %>% 
+  summarize(maxvalue=max(RSLT_RESULT_VALUE)) %>% 
+  ungroup() %>% 
+  mutate(maxvalue=as.numeric(maxvalue))
+
+
+rm(list=setdiff(ls(), c("newdata",'draft','full')))
+```
+
+
+
+```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+library(ggmap)
+library(ggrepel)
+
+sites_map<-draft %>% select(LAKE_HISTORY_ID,LOCATION_HISTORY_ID,LOCATION_X_COORDINATE,LOCATION_Y_COORDINATE,agg_L3_Key) %>% distinct()
+
+nybox<-make_bbox(sites_map,lon=LOCATION_X_COORDINATE,lat=LOCATION_Y_COORDINATE)
+
+print(ny.map1<-qmap(nybox,source="osm",maptype="terrain",color="bw")+
+  geom_point(data=sites_map,aes(x=LOCATION_X_COORDINATE,y=LOCATION_Y_COORDINATE,label=LAKE_HISTORY_ID,colour=agg_L3_Key),size=4))
+
+
+DT::datatable(sites_map, extensions = 'Buttons', options = list(dom = 'Bfrtip',buttons = c('copy', 'csv', 'excel', 'pdf', 'print')))
+rm(list=setdiff(ls(), c("newdata",'draft','full')))
+```
+
+## Violin Plot
+
+```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+ library(ggplot2)
+# ggplot(draft,aes(x=agg_L3_Name,y=medians)) +
+#   geom_violin()+
+#   scale_y_continuous(trans='log10')
+
+#create these files for Charlie's plot
+cl_historic_ADJ.agg.summary<-draft %>% 
+  group_by(agg_L3_Name) %>% 
+  summarize(MEDIAN_COUNT=n()) %>% 
+  ungroup() %>% 
+  rename(Aggregate_Level = agg_L3_Name) 
+cl_historic_ADJ.agg.state<-cl_historic_ADJ.agg.summary %>% 
+  mutate(agg_state="NYS Combined") %>% 
+  group_by(agg_state) %>% 
+  summarize(MEDIAN_COUNT=sum(MEDIAN_COUNT)) %>% 
+  ungroup()
+
+#load libraries:
+library(devtools)
+library(ggplot2)
+library(cowplot)
+library(pgirmess)
+library(grid)
+
+
+## Create plot of state
+#----
+## Create boxplot for entire state
+plot_eco_state <- ggplot(draft,
+aes(x = agg_state,y = as.numeric(medians))) +
+geom_violin(width = 1,
+color = "grey40") +
+stat_boxplot(color = "black",
+geom = 'errorbar',
+width = 0.075,
+size = 1.2) +
+geom_boxplot(color = "black",
+fill = "#ffffff",
+outlier.size = 3,
+outlier.shape = 16,
+outlier.color = "black",
+notch = F,
+width = 0.15) +
+geom_text(data=cl_historic_ADJ.agg.state,
+aes(x=agg_state,
+y=0.05,
+label=paste("n =",
+MEDIAN_COUNT)),
+size = 4) +
+#xlab("") +
+ylab("Cl Concentration (mg/L)") +
+geom_hline(yintercept = 250, linetype='dashed', col = '#333333', size = 1.25) +
+scale_y_log10(position = "right",
+breaks = sort(c(0, 1.0, 10.0, 100.0, 250.0, 1000.0))) +
+scale_x_discrete(labels = function(x) stringr::str_wrap(x, width = 5)) +
+#theme_grey() +
+theme(text=element_text(size=15, family="sans", color = "black"),
+axis.text = element_text(color = "black"),
+axis.title = element_text(face = "bold"),
+axis.title.x = element_blank(),
+panel.background = element_rect(fill = "darkgrey"),
+panel.border = element_rect(color = "black", fill = NA, size = 1.5),
+panel.grid.major.y = element_line(color = "white", size = 0.5),
+panel.grid.minor.y = element_blank(),
+panel.grid.minor.x = element_blank(),
+panel.grid.major.x = element_blank(),
+plot.title = element_text(hjust = 0.5))
+
+
+
+#----
+## Create plot of eco regions
+#----
+## Sort the df to plot concentrations lowest to highest (left to right)
+sort_eco_cl_h <- draft %>%
+select(agg_L3_Name,
+medians) %>%
+rename(Aggregate_Level = agg_L3_Name)
+
+
+
+sort_eco_cl_h$Aggregate_Level <- as.factor(sort_eco_cl_h$Aggregate_Level)
+
+
+
+sort_eco_cl_h <- sort_eco_cl_h %>%
+mutate(Aggregate_Level = fct_reorder(Aggregate_Level,
+as.numeric(medians)))
+
+
+
+plot_eco_sep <- ggplot(sort_eco_cl_h,
+aes(x = Aggregate_Level,
+y = as.numeric(medians))) +
+geom_violin(width = 1.1,
+color = "grey40") +
+stat_boxplot(color = "black",
+geom = 'errorbar',
+width = 0.075,
+size = 1.2) +
+geom_boxplot(color = "black",
+fill = "#ffffff",
+outlier.size = 3,
+outlier.shape = 16,
+outlier.color = "black",
+notch = F,
+width = 0.1) +
+geom_text(data=cl_historic_ADJ.agg.summary,
+aes(x=factor(Aggregate_Level),
+y= 0.05,
+label=paste("n =",
+MEDIAN_COUNT)),
+size = 4) +
+#xlab("EcoRegion") +
+ylab("Cl Concentration (mg/L)") +
+geom_hline(yintercept = 250, linetype='dashed', col = '#333333', size = 1.25) +
+scale_y_log10(position = "left",
+breaks = sort(c(0, 1.0, 10.0, 100.0, 250.0, 1000.0))) +
+scale_x_discrete(labels = function(x) stringr::str_wrap(x, width = 15)) +
+theme_grey() +
+theme(text=element_text(size=15, family="sans", color = "black"),
+axis.text = element_text(color = "black"),
+axis.title = element_text(face = "bold"),
+axis.title.x = element_blank(),
+panel.background = element_rect(fill = "darkgrey"),
+panel.border = element_rect(color = "black", fill = NA, size = 1.5),
+panel.grid.major.y = element_line(color = "white", size = 0.5),
+panel.grid.minor.y = element_blank(),
+panel.grid.minor.x = element_blank(),
+panel.grid.major.x = element_blank(),
+plot.title = element_text(hjust = 0.5))
+
+
+
+plot_row <- plot_grid(plot_eco_sep, plot_eco_state,
+rel_widths = c(0.80, 0.20),
+align = "h")
+library(grid)
+library(gridExtra)
+x.grob <- grid::textGrob("NYS Cl Ecoregion",
+gp=gpar(fontface="bold", family="sans", col="black", fontsize=15))
+
+
+
+#add to plot
+
+
+
+plot_row <- grid.arrange(arrangeGrob(plot_row, bottom = x.grob))
+plot_final <- arrangeGrob(arrangeGrob(plot_row, bottom = x.grob))
+
+
+
+# now add the title
+# boxplot_title <- ggdraw() +
+# draw_label("Median Cl Concentrations (mg/L) for Aggregated EPA Level III EcoRegions",
+# fontface = 'bold',
+# x = 0.025,
+# y = 1,
+# hjust = 0
+# ) +
+# draw_label("and NY State (2001 - 2019)",
+# fontface = 'bold',
+# x = 0.025,
+# y = 0.5,
+# hjust = 0) +
+# theme(
+# # add margin on the left of the drawing canvas,
+# # so title is aligned with left edge of first plot
+# plot.margin = margin(t = 5, r = 0, b = 0, l = 0,
+# unit = "mm"),
+# text=element_text(size=14, family="sans")
+# )
+
+
+
+# plot_grid(
+# boxplot_title, plot_row,
+# ncol = 1,
+# # rel_heights values control vertical title margins
+# rel_heights = c(0.1, 1)
+# )
+
+
+
+# ggsave(filename = "20210723_NY_state_and_Eco_Region_Cl_violin_boxplot_separated_log_grey_fill_png_v1.png", plot_row,
+# path = file.path("D:",
+# "cstoll_root",
+# "Chloride_Project",
+# "2020",
+# "Figures",
+# "boxplot"),
+# scale = 1,
+# width = 11,
+# height = 8.5,
+# units = "in",
+# dpi = 600)
+
+print(plot_row)  
+rm(list=setdiff(ls(), c("newdata",'draft','full')))
+
+```
+
+## tables
+
+General Statistics
+```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+stats<-draft %>% 
+  group_by(agg_L3_Name) %>% 
+  mutate(n_Sites=n()) %>% 
+  ungroup() %>% 
+  group_by(agg_L3_Name,n_Sites) %>% 
+  summarise_at(vars(medians),
+               list(Median=median, Maximum=max,
+                    `Upper Quantile`=~quantile(., probs = 0.75),
+                    `Lower Quantile`=~quantile(., probs = 0.25))) %>% 
+  ungroup() %>% 
+  rename(`Aggregate Level`=agg_L3_Name)
+
+DT::datatable(stats, extensions = 'Buttons', options = list(dom = 'Bfrtip',buttons = c('copy', 'csv', 'excel', 'pdf', 'print')))
+rm(list=setdiff(ls(), c("newdata",'draft','full')))
+
+```
+
+Percentage of sites with at least one excursion.
+This is simply the number of sites with excursions divided by the total number of sites and multiplied by 100.
+```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+excursion<-full %>% 
+  mutate(LOCATION_WATERBODY_CLASSIFICATION=
+           ifelse(grepl("A",LOCATION_WATERBODY_CLASSIFICATION),"A","non-A"),
+         excursion=ifelse(maxvalue>250,1,0)) %>% 
+  rename(class=LOCATION_WATERBODY_CLASSIFICATION,
+         `Aggregate Level`=agg_L3_Name) %>% 
+  select(`Aggregate Level`,LAKE_HISTORY_ID,class,excursion) %>% distinct() %>% 
+  group_by(`Aggregate Level`,class) %>% 
+  summarize(frequency=signif((mean(excursion)*100),3)) %>% 
+  ungroup() %>% 
+  spread(class,frequency)
+excursion_all<-full %>% 
+  mutate(excursion=ifelse(maxvalue>250,1,0)) %>% 
+  rename(`Aggregate Level`=agg_L3_Name) %>% 
+  select(`Aggregate Level`,LAKE_HISTORY_ID,excursion) %>% distinct() %>% 
+  group_by(`Aggregate Level`) %>% 
+  summarize(frequency=signif((mean(excursion)*100),3)) %>% 
+  ungroup() %>% 
+  mutate(class="All Class Waters") %>% 
+  spread(class,frequency)
+excursion<-merge(excursion,excursion_all,all=TRUE)
+
+DT::datatable(excursion, extensions = 'Buttons', options = list(dom = 'Bfrtip',buttons = c('copy', 'csv', 'excel', 'pdf', 'print')))
+rm(list=setdiff(ls(), c("newdata",'draft','full')))
+```
