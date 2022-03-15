@@ -81,7 +81,8 @@ full<- full %>%
   group_by(LAKE_HISTORY_ID,LOCATION_HISTORY_ID,agg_L3_Key,agg_L3_Name,LOCATION_X_COORDINATE,LOCATION_Y_COORDINATE,LOCATION_WATERBODY_CLASSIFICATION) %>% 
   summarize(maxvalue=max(RSLT_RESULT_VALUE)) %>% 
   ungroup() %>% 
-  mutate(maxvalue=as.numeric(maxvalue))
+  mutate(maxvalue=as.numeric(maxvalue),
+         agg_state="NYS Combined")
 
 
 rm(list=setdiff(ls(), c("newdata",'draft','full')))
@@ -326,7 +327,18 @@ stats<-draft %>%
                     `Lower Quantile`=~quantile(., probs = 0.25))) %>% 
   ungroup() %>% 
   rename(`Aggregate Level`=agg_L3_Name)
-
+stats1<-draft %>% 
+  group_by(agg_state) %>% 
+  mutate(n_Sites=n()) %>% 
+  ungroup() %>% 
+  group_by(agg_state,n_Sites) %>% 
+  summarise_at(vars(medians),
+               list(Median=median, Maximum=max,
+                    `Upper Quantile`=~quantile(., probs = 0.75),
+                    `Lower Quantile`=~quantile(., probs = 0.25))) %>% 
+  ungroup() %>% 
+  rename(`Aggregate Level`=agg_state)
+stats<-merge(stats,stats1,all=TRUE)
 DT::datatable(stats, extensions = 'Buttons', options = list(dom = 'Bfrtip',buttons = c('copy', 'csv', 'excel', 'pdf', 'print')))
 rm(list=setdiff(ls(), c("newdata",'draft','full')))
 
@@ -346,6 +358,18 @@ excursion<-full %>%
   summarize(frequency=signif((mean(excursion)*100),3)) %>% 
   ungroup() %>% 
   spread(class,frequency)
+excursion1<-full %>% 
+  mutate(LOCATION_WATERBODY_CLASSIFICATION=
+           ifelse(grepl("A",LOCATION_WATERBODY_CLASSIFICATION),"A","non-A"),
+         excursion=ifelse(maxvalue>250,1,0)) %>% 
+  rename(class=LOCATION_WATERBODY_CLASSIFICATION,
+         `Aggregate Level`=agg_state) %>% 
+  select(`Aggregate Level`,LAKE_HISTORY_ID,class,excursion) %>% distinct() %>% 
+  group_by(`Aggregate Level`,class) %>% 
+  summarize(frequency=signif((mean(excursion)*100),3)) %>% 
+  ungroup() %>% 
+  spread(class,frequency)
+excursion<-merge(excursion,excursion1,all=TRUE)
 excursion_all<-full %>% 
   mutate(excursion=ifelse(maxvalue>250,1,0)) %>% 
   rename(`Aggregate Level`=agg_L3_Name) %>% 
@@ -355,8 +379,68 @@ excursion_all<-full %>%
   ungroup() %>% 
   mutate(class="All Class Waters") %>% 
   spread(class,frequency)
+excursion_all1<-full %>% 
+  mutate(excursion=ifelse(maxvalue>250,1,0)) %>% 
+  rename(`Aggregate Level`=agg_state) %>% 
+  select(`Aggregate Level`,LAKE_HISTORY_ID,excursion) %>% distinct() %>% 
+  group_by(`Aggregate Level`) %>% 
+  summarize(frequency=signif((mean(excursion)*100),3)) %>% 
+  ungroup() %>% 
+  mutate(class="All Class Waters") %>% 
+  spread(class,frequency)
+excursion_all<-merge(excursion_all,excursion_all1,all=TRUE)
 excursion<-merge(excursion,excursion_all,all=TRUE)
 
 DT::datatable(excursion, extensions = 'Buttons', options = list(dom = 'Bfrtip',buttons = c('copy', 'csv', 'excel', 'pdf', 'print')))
 rm(list=setdiff(ls(), c("newdata",'draft','full')))
+```
+
+## Sampling Frequencies
+
+```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+	junk<-newdata %>% 
+	  filter(!is.na(LAKE_HISTORY_ID),
+	         SAMPLE_DATE>'2001-01-01',
+	         CHARACTERISTIC_NAME=="CHLORIDE") %>% distinct()
+	#removing those that are rejected
+	junk5<-newdata %>% 
+	  filter(!is.na(LAKE_HISTORY_ID),
+	         SAMPLE_DATE>'2001-01-01',
+	         CHARACTERISTIC_NAME=="CHLORIDE")%>% distinct() %>% 
+	  filter(is.na(RSLT_VALIDATOR_QUALIFIER)|RSLT_VALIDATOR_QUALIFIER!="R")
+	#unique locations
+	junk6<-junk5 %>% select(LOCATION_HISTORY_ID) %>% distinct()
+	#frequency of non-detect
+junk7<-junk5 %>% filter(grepl("U",RSLT_LABORATORY_QUALIFIER))
+#number of sites with multiple observations
+junk8<-junk5 %>% 
+  group_by(LAKE_HISTORY_ID) %>% 
+  summarize(n=n()) %>% 
+  ungroup() %>% 
+  filter(n>1) %>% distinct()
+```
+
+Number of chloride samples
+```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+print(nrow(junk))
+```
+
+number of chloride samples that don't have rejected values
+```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+print(nrow(junk5))
+```
+
+number of locations with accepted data
+```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+print(nrow(junk6))
+```
+
+number of accepted samples that were non-detects
+```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+print(nrow(junk7))
+```
+
+Number of locations with multiple samples
+```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+print(nrow(junk8))
 ```

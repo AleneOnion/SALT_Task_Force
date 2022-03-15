@@ -19,3 +19,5 @@ write.csv(junk2,file="arnold.lake.profile.csv",row.names=FALSE)
 
 
 rmarkdown::render("C:/Users/leneo/Dropbox/Alene/Rscripts/SALT_Task_Force/Chloride_analysis_Charles_Stoll_paper.Rmd")
+
+rmarkdown::render("C:/Users/leneo/Dropbox/Alene/Rscripts/SALT_Task_Force/Salt_task_force_flowing_ponded_ground_water_summary.Rmd")

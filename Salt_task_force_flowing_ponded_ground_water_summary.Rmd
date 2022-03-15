@@ -1,0 +1,224 @@
+---
+title: "Data_Summary_for_SALT_Task_Force"
+author: "Alene Onion"
+date: "3/14/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#  {.tabset}
+
+## Map
+
+This map shows all the lakes in the Adirondacks sampled by NYSDEC programs. Class A waters are distinguished by color when relevant.
+
+Ponded Waters:
+```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+
+# setwd("C:/Users/leneo/Dropbox/Alene/Rscripts/Current")
+# source("new_database/Reading.LMAS.Data.R")
+# setwd("C:/Users/leneo/Dropbox/Alene/Rscripts/Probability.Sampling")
+
+rm(list=setdiff(ls(), c("newdata")))
+library(tidyverse)
+
+draft<-newdata %>% 
+  mutate(DATA_PROVIDER=ifelse(DATA_PROVIDER=="CSL","CSLAP",DATA_PROVIDER),
+         DATA_PROVIDER=ifelse(substr(SAMPLE_DATE,1,4)=='2021'&LAKE_HISTORY_ID=="0903FOL0186","RMN",DATA_PROVIDER)) %>% 
+  filter(CHARACTERISTIC_NAME %in% c('SODIUM','CHLORIDE'),
+         SAMPLE_DATE>'2011-01-01',
+         #INFORMATION_TYPE=="BS",
+         RSLT_VALIDATOR_QUALIFIER!="R"|is.na(RSLT_VALIDATOR_QUALIFIER)) %>% 
+  mutate(RSLT_RESULT_VALUE=ifelse(RSLT_VALIDATOR_QUALIFIER=="U",RSLT_METHOD_DETECTION_LIMIT/2,RSLT_RESULT_VALUE),
+         LOCATION_WATERBODY_CLASSIFICATION=ifelse(grepl("A",LOCATION_WATERBODY_CLASSIFICATION),"A","B/C")) %>% 
+  filter(!is.na(RSLT_RESULT_VALUE)) %>% distinct() %>% 
+  select(LAKE_HISTORY_ID,LAKE_FIN,LOCATION_HISTORY_ID,LOCATION_WATERBODY_CLASSIFICATION,
+         LOCATION_X_COORDINATE,LOCATION_Y_COORDINATE,SAMPLE_DATE,INFORMATION_TYPE,
+         CHARACTERISTIC_NAME,RSLT_RESULT_VALUE,RSLT_RESULT_UNIT) %>% distinct()
+blueline<-read.csv("C:/Users/leneo/Dropbox/Alene/Rscripts/SALT_Task_Force/ADK_Lakes_Blue_Line.csv")
+blueline<-blueline %>% mutate(LAKE_FIN=FIN) %>% select(LAKE_FIN) %>% mutate(AP="Y") %>% distinct()
+
+draft<-merge(blueline,draft,by=c("LAKE_FIN"),all = TRUE)
+draft<-draft %>% mutate(AP=ifelse(is.na(AP),"N",AP))
+
+sites<-draft %>% 
+  filter(AP=="Y") %>% 
+  select(LAKE_HISTORY_ID,LOCATION_WATERBODY_CLASSIFICATION,LOCATION_X_COORDINATE,LOCATION_Y_COORDINATE) %>% 
+  distinct() 
+library(ggmap)
+library(ggrepel)
+
+nybox<-make_bbox(sites,lon=LOCATION_X_COORDINATE,lat=LOCATION_Y_COORDINATE)
+
+print(ny.map1<-qmap(nybox,source="osm",maptype="terrain",color="bw")+
+  geom_point(data=sites,aes(x=LOCATION_X_COORDINATE,y=LOCATION_Y_COORDINATE,label=LAKE_HISTORY_ID,colour=LOCATION_WATERBODY_CLASSIFICATION),size=4))
+
+rm(list=setdiff(ls(), c("newdata",'draft')))
+
+```
+
+
+Groundwater:
+```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+gwsites<-read.csv("GW.data.sites.csv")
+gwsites<-gwsites %>% rename(site_no=Site_No) %>% select(site_no,Dec_Lat,Dec_Long,AP) %>% distinct()
+gwdraft<-read.csv("GW.data.data.csv")
+gwdraft<-merge(gwdraft,gwsites,by=c("site_no"),all=TRUE)
+gwdraft<-gwdraft %>% 
+  select(site_no,sample_dt,Dec_Lat,Dec_Long,p00930,p00940,AP) %>% 
+  rename(SODIUM=p00930,
+         CHLORIDE=p00940) %>% 
+  gather(CHARACTERISTIC_NAME,RSLT_RESULT_VALUE,-site_no,-Dec_Lat,-Dec_Long,-AP,-sample_dt) %>% 
+  mutate(RSLT_RESULT_VALUE=as.numeric(RSLT_RESULT_VALUE),
+         SAMPLE_DATE=as.Date(sample_dt,format="%m/%d/%Y")) %>% 
+  filter(!is.na(RSLT_RESULT_VALUE),SAMPLE_DATE>'2011-01-01') %>% 
+  mutate(RSLT_RESULT_VALUE=ifelse(CHARACTERISTIC_NAME=="SODIUM",
+                             RSLT_RESULT_VALUE*1000,RSLT_RESULT_VALUE),
+    RSLT_RESULT_UNIT=ifelse(CHARACTERISTIC_NAME=="SODIUM","ug/L","mg/L")) %>% 
+  select(site_no,SAMPLE_DATE,Dec_Lat,Dec_Long,AP,CHARACTERISTIC_NAME,RSLT_RESULT_VALUE,RSLT_RESULT_UNIT) %>% 
+  distinct()
+rm(list=setdiff(ls(), c("newdata",'draft','gwdraft')))
+
+sites<-gwdraft %>% 
+  filter(AP=="Y") %>% 
+  rename(LOCATION_X_COORDINATE=Dec_Long,LOCATION_Y_COORDINATE=Dec_Lat) %>% 
+  select(site_no,LOCATION_X_COORDINATE,LOCATION_Y_COORDINATE) %>% 
+  distinct() 
+library(ggmap)
+library(ggrepel)
+
+nybox<-make_bbox(sites,lon=LOCATION_X_COORDINATE,lat=LOCATION_Y_COORDINATE)
+
+print(ny.map1<-qmap(nybox,source="osm",maptype="terrain",color="bw")+
+  geom_point(data=sites,aes(x=LOCATION_X_COORDINATE,y=LOCATION_Y_COORDINATE,label=site_no),size=4))
+rm(list=setdiff(ls(), c("newdata",'draft','gwdraft')))
+```
+
+Flowing Waters
+```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+sdraft<-read.csv("Stream_Chloride.csv")
+sdraft<-sdraft %>% select(site_id,sample_date,chemical_name,adj_result_value,result_unit,
+                          Class_A,Lat,Long) %>% distinct() %>% 
+  rename(site_no=site_id,
+         SAMPLE_DATE=sample_date,
+         CHARACTERISTIC_NAME=chemical_name,
+         RSLT_RESULT_VALUE=adj_result_value,
+         RSLT_RESULT_UNIT=result_unit,
+         LOCATION_WATERBODY_CLASSIFICATION=Class_A,
+         LOCATION_X_COORDINATE=Long,
+         LOCATION_Y_COORDINATE=Lat) %>% 
+  mutate(LOCATION_WATERBODY_CLASSIFICATION=ifelse(LOCATION_WATERBODY_CLASSIFICATION=="TRUE","A","B"))
+ssites<-read.csv("Streams_ADK_sites.csv")
+ssites<-ssites %>% select(Site_ID) %>% mutate(AP="Y") %>% rename(site_no=Site_ID) %>% distinct()
+
+sdraft<-merge(ssites,sdraft,by=c('site_no'),all=TRUE)
+sdraft<-sdraft %>% filter(!is.na(site_no)) %>% 
+  mutate(AP=ifelse(is.na(AP),"N",AP),
+         CHARACTERISTIC_NAME=ifelse(CHARACTERISTIC_NAME=="chloride (as cl)","CHLORIDE",CHARACTERISTIC_NAME)) %>% 
+  filter(!is.na(CHARACTERISTIC_NAME))
+
+sites<-sdraft %>% 
+  filter(AP=="Y") %>% 
+  select(site_no,LOCATION_X_COORDINATE,LOCATION_Y_COORDINATE,LOCATION_WATERBODY_CLASSIFICATION) %>% 
+  distinct() 
+library(ggmap)
+library(ggrepel)
+
+nybox<-make_bbox(sites,lon=LOCATION_X_COORDINATE,lat=LOCATION_Y_COORDINATE)
+
+print(ny.map1<-qmap(nybox,source="osm",maptype="terrain",color="bw")+
+  geom_point(data=sites,aes(x=LOCATION_X_COORDINATE,y=LOCATION_Y_COORDINATE,label=site_no,colour=LOCATION_WATERBODY_CLASSIFICATION),size=4))
+rm(list=setdiff(ls(), c("newdata",'draft','gwdraft','sdraft')))
+```
+
+## Median
+
+Values are reduced to a median since 2001 for each site.
+
+```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+median<-draft %>% 
+  group_by(LAKE_HISTORY_ID,CHARACTERISTIC_NAME,AP) %>% 
+  summarize(median=median(RSLT_RESULT_VALUE)) %>% 
+  ungroup() %>% 
+  rename(site_no=LAKE_HISTORY_ID) %>% 
+  mutate(type=ifelse(AP=="Y","ponded (within)","ponded (outside)"),
+         AP=ifelse(AP=="Y","within","outside"))
+gwmedian<-gwdraft %>% 
+  group_by(site_no,CHARACTERISTIC_NAME,AP) %>% 
+    summarize(median=median(RSLT_RESULT_VALUE)) %>% 
+  ungroup() %>% 
+  mutate(type=ifelse(AP=="Y","groundwater (within)","groundwater (outside)"),
+         AP=ifelse(AP=="Y","within","outside"))
+median<-merge(median,gwmedian,by=c('type','CHARACTERISTIC_NAME','median','AP'),all=TRUE)
+smedian<-sdraft %>% 
+  group_by(site_no,CHARACTERISTIC_NAME,AP) %>% 
+  summarize(median=median(RSLT_RESULT_VALUE)) %>% 
+  ungroup() %>% 
+  mutate(type=ifelse(AP=="Y","flowing (within)","flowing (outside)"),
+         AP=ifelse(AP=="Y","within","outside"))
+median<-merge(median,smedian,by=c('type','CHARACTERISTIC_NAME','median','AP'),all=TRUE)
+
+library(ggplot2)
+print(ggplot(median %>% filter(CHARACTERISTIC_NAME=="CHLORIDE"),aes(x=type,y=median,fill=AP)) +
+  geom_violin(width=1)+
+  scale_fill_manual(values=c("cornflowerblue", "darkolivegreen"))+
+  geom_boxplot(width=.1,color="grey")+
+  scale_y_continuous(trans="log", breaks=c(1, 10, 100, 1000,10000)) +
+  ylab("Chloride mg/L") +
+  geom_hline(yintercept=230, linetype="dashed", color = "red")+
+  geom_hline(yintercept=250, linetype="dashed", color = "red")+
+  geom_hline(yintercept=860, linetype="dashed", color = "red")+
+  theme(axis.title.x = element_blank(),
+  axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
+  legend.title=element_blank()))
+
+```
+
+## Maximum
+
+Values are reduced to the maximum value observed at each location since 2001.
+
+```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+median<-draft %>% 
+  group_by(LAKE_HISTORY_ID,CHARACTERISTIC_NAME,AP) %>% 
+  summarize(median=max(RSLT_RESULT_VALUE)) %>% 
+  ungroup() %>% 
+  rename(site_no=LAKE_HISTORY_ID) %>% 
+  mutate(type=ifelse(AP=="Y","ponded (within)","ponded (outside)"),
+         AP=ifelse(AP=="Y","within","outside"))
+gwmedian<-gwdraft %>% 
+  group_by(site_no,CHARACTERISTIC_NAME,AP) %>% 
+    summarize(median=max(RSLT_RESULT_VALUE)) %>% 
+  ungroup() %>% 
+  mutate(type=ifelse(AP=="Y","groundwater (within)","groundwater (outside)"),
+         AP=ifelse(AP=="Y","within","outside"))
+median<-merge(median,gwmedian,by=c('type','CHARACTERISTIC_NAME','median','AP'),all=TRUE)
+smedian<-sdraft %>% 
+  group_by(site_no,CHARACTERISTIC_NAME,AP) %>% 
+  summarize(median=max(RSLT_RESULT_VALUE)) %>% 
+  ungroup() %>% 
+  mutate(type=ifelse(AP=="Y","flowing (within)","flowing (outside)"),
+         AP=ifelse(AP=="Y","within","outside"))
+median<-merge(median,smedian,by=c('type','CHARACTERISTIC_NAME','median','AP'),all=TRUE)
+
+library(ggplot2)
+print(ggplot(median %>% filter(CHARACTERISTIC_NAME=="CHLORIDE"),aes(x=type,y=median,fill=AP)) +
+  geom_violin(width=1)+
+  scale_fill_manual(values=c("cornflowerblue", "darkolivegreen"))+
+  geom_boxplot(width=.1,color="grey")+
+  scale_y_continuous(trans="log", breaks=c(1, 10, 100, 1000,10000)) +
+  ylab("Chloride mg/L") +
+  geom_hline(yintercept=230, linetype="dashed", color = "red")+
+  geom_hline(yintercept=250, linetype="dashed", color = "red")+
+  geom_hline(yintercept=860, linetype="dashed", color = "red")+
+  theme(axis.title.x = element_blank(),
+  axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
+  legend.title=element_blank()))
+
+
+
+
+```

@@ -1,0 +1,556 @@
+Site_ID,Lat,Long,SITE_NAME,Site_Selection,Project_Name
+08-ADKS_17-0.6,43.92472,-74.81416,Unnamed Tributary To Stillwater Reservoir,Non-Targeted / Targeted,RIBS Screening / RAS
+08-ADKS_18-0.5,43.97417,-74.7936,Unnamed Tributary To Beaver River,Non-Targeted / Targeted,RIBS Screening / RAS
+08-ADKS_19-0.2,43.93333,-74.68806,Unnamed Tributary To Shingle Shanty Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+08-ADKS_21-0.2,43.86083,-75.14,Unnamed Tributary To Beaver River,Non-Targeted / Targeted,RIBS Screening / RAS
+08-ADKS_22-0.2,43.85444,-75.16111,Unnamed Tributary To Francis Lake,Non-Targeted / Targeted,RIBS Screening / RAS
+08-ADKS_23-0.1,43.76805,-74.71388,Unnamed Tributary To Eighth Lake Outlet,Non-Targeted / Targeted,RIBS Screening / RAS
+08-ADKS_24-0.8,43.66861,-75.26888,Unnamed Tributary To Fish Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+08-ADKS_26-9.8,43.68778,-75.21555,Fish Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+08-ADKS_27-0.1,43.64722,-74.96361,Unnamed Tributary To Little Moose Outlet,Non-Targeted / Targeted,RIBS Screening / RAS
+08-ADKS_28-1.3,43.71556,-74.76082,Fawn Lake Inlet,Non-Targeted / Targeted,RIBS Screening / RAS
+08-ADKS_29-0.9,43.70333,-74.77834,Limekiln Lake Trib,Non-Targeted / Targeted,RIBS Screening / RAS
+08-ADKS_30-0.1,43.7011,-74.7573,Unnamed Tributary to Red River,Non-Targeted / Targeted,RIBS Screening / RAS
+08-ADKS_31-0.1,43.70306,-74.75694,Unnamed Tributary to Red River,Non-Targeted / Targeted,RIBS Screening / RAS
+08-ADKS_32-0.1,43.70222,-74.75278,Unnamed Tributary to Red River,Non-Targeted / Targeted,RIBS Screening / RAS
+08-ADKS_33-0.1,43.64917,-74.68833,Unnamed Tributary To Falls Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+08-ADKS_34-0.2,43.7025,-74.59638,Bradley Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+08-ADKS_35-2.0,43.7025,-74.575,Silver Run,Non-Targeted / Targeted,RIBS Screening / RAS
+08-ADKS_36-0.5,43.65583,-74.67555,Unnamed Tributary To Otter Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+08-ADKS_37-5.0,43.53944,-75.205,Cummings Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+08-ADKS_38-0.2,43.61833,-74.94639,Unnamed Tributary To Big Woodhull Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+08-ADKS_39-0.3,43.45667,-75.00417,Vincent Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+08-ADKS_40-0.1,43.48611,-75.00249,Unnamed Tributary To Otter Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+08-BEAD-0.1,43.78167,-75.28394,Beaver Meadow Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+08-BEEV_T16-1.5,43.92107,-75.18084,Unnamed Tributary To Beaver River,Non-Targeted / Targeted,RIBS Screening / RAS
+08-BENE-0.2,43.67611,-74.70834,Benedict Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+08-BLCK_T132-2.0,43.51919,-74.914078,Unnamed Tributary To Black River,Non-Targeted / Targeted,RIBS Screening / RAS
+08-BRDL-0.1,43.70083,-74.59639,Bradley Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+08-BRNT-0.1,43.695326,-75.263857,Unnamed Tributary To Brantingham Lake,Non-Targeted / Targeted,RIBS Screening / RAS
+08-BUCC-0.1,43.7389,-74.7222,Buck Creek,Targeted,RMN
+08-BURN-3.1,43.82947,-75.25346,Burnt Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+08-CELL-0.3,43.70472,-74.57917,Cellar Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+08-CRYS_T11-1.1,43.816071,-75.30574,Unnamed Tributary To Crystal Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+08-EAGL-1.0,43.77272,-74.82064,Eagle Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+08-FSHB-1.3,43.92972,-75.21056,Fish Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+08-ICEE-0.2,43.55986,-74.90392,Ice Cave Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+08-INDB-1.4,43.70833,-75.01805,Indian Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+08-INDY-10.7,43.77111,-75.30556,Independence River,Non-Targeted / Targeted,RIBS Screening / RAS
+08-LBLK-5.0,43.37583,-75.06805,Little Black Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+08-LIZA-1.2,43.87222,-75.08052,Lizard Spring Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+08-LMOO-1.9,43.66228,-74.94861,Little Moose Outlet,Non-Targeted / Targeted,RIBS Screening / RAS
+08-MOOS-11.4,43.605611,-75.185978,Moose River,Non-Targeted / Targeted,RIBS Screening / RAS
+08-MOOS-16.8,43.6125,-75.1011,Moose River,Non-Targeted / Targeted,RIBS Screening / RAS
+08-MOOS-4.9,43.62361,-75.27388,Moose River,Non-Targeted / Targeted,RIBS Screening / RAS
+08-MOOS_M-3.9,43.66222,-75.07305,Middle Branch Moose River,Non-Targeted / Targeted,RIBS Screening / RAS
+08-MOOS_N-1.4,43.71305,-74.99972,North Branch Moose River,Non-Targeted / Targeted,RIBS Screening / RAS
+08-MOOS_S-0.1,43.6425,-74.95472,South Branch Moose River,Non-Targeted / Targeted,RIBS Screening / RAS
+08-OTLO-0.7,43.57539,-75.13557,Otter Lake Outlet,Non-Targeted / Targeted,RIBS Screening / RAS
+08-OTTR-12.1,43.71695,-75.22111,Otter Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+08-PINC-0.4,43.62389,-75.25832,Pine Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+08-PINC_T2-2.4,43.64603,-75.199491,Unnamed Tributary To Pine Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+08-SLVR-0.3,43.69389,-74.60306,Silver Run,Non-Targeted / Targeted,RIBS Screening / RAS
+08-SLVR-2.0,43.703,-74.57449,Silver Run,Non-Targeted / Targeted,RIBS Screening / RAS
+08-SUND-0.2,43.87022,-75.13825,Sunday Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+08-THRK-0.7,43.73064,-74.88431,Third Lake Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+08-TWIL-0.9,43.45067,-75.01492,Twin Lakes Stream,Non-Targeted / Targeted,RIBS Screening / RAS
+08-TWIT-0.9,43.85081,-74.9978,Twitchell Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+08-WADKS-0.1,43.713429,-74.78331,Unnamed Tributary To Limekiln Lake,Non-Targeted / Targeted,RIBS Screening / RAS
+08-WTHRK-0.7,43.730671,-74.884381,Third Lake Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+09-ADKS_01-0.1,44.13083,-75.25611,Unnamed Tributary To South Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+09-ADKS_04-7.4,44.21194,-75.12556,Yellow Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+09-ADKS_05-4.7,44.181666,-75.07805,Unnamed Tributary To Little River,Non-Targeted / Targeted,RIBS Screening / RAS
+09-ADKS_06-0.9,44.22583,-75.04583,Unnamed Tributary To Skate Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+09-ADKS_07-0.8,44.19417,-74.82278,Unnamed Tributary To Cranberry Lake,Non-Targeted / Targeted,RIBS Screening / RAS
+09-ADKS_08-0.6,44.199722,-74.845833,Unnamed Tributary To Cranberry Lake,Non-Targeted / Targeted,RIBS Screening / RAS
+09-ADKS_10-0.3,44.09195,-75.27721,Unnamed Tributary To Middle Branch Oswegatchie River,Non-Targeted / Targeted,RIBS Screening / RAS
+09-ADKS_13-0.5,44.0105,-75.2331,Unnamed Tributary To Blue Swamp Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+09-ADKS_14-0.4,44.05083,-75.22139,Unnamed Tributary To Palmer Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+09-ADKS_15-0.9,44.0364,-75.0936,Massawepie Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+09-ADKS11_157-1.6,43.86745,-74.43265,Unnamed Tributary To Blue,Non-Targeted / Targeted,RIBS Screening / RAS
+09-ADKS11_65-0.1,43.91317,-74.48412,Unnamed Tributary To Raquette River,Non-Targeted / Targeted,RIBS Screening / RAS
+09-AMPR-2.6,44.19833,-74.29666,Ampersand Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+09-BCKB-0.6,44.43864,-75.04945,Buck Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+09-BIBK-5.4,44.00278,-74.48027,Big Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+09-BOGR-0.1,44.12861,-74.54556,Bog River,Non-Targeted / Targeted,RIBS Screening / RAS
+09-BVBK-0.1,43.8648,-74.47869,Beaver Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+09-CLDK-7.2,44.44579,-74.80504,Cold Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+09-CORI-13.9,44.14228,-74.12884,Cold River,Non-Targeted / Targeted,RIBS Screening / RAS
+09-DECR-6.0,44.21639,-74.61916,Dead Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+09-DECR_T4-0.1,44.2162,-74.61581,Unnamed Tributary To Dead Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+09-FIRS-0.2,44.30533,-74.9944,First Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+09-GRAS_M-1.0,44.37528,-75.06055,Middle Branch Grass River,Non-Targeted / Targeted,RIBS Screening / RAS
+09-GRAS_M-3.7,44.380032,-75.03131,Middle Branch Grass River,Non-Targeted / Targeted,RIBS Screening / RAS
+09-GRAS_N-3.7,44.42917,-75.05166,North Branch Grass River,Non-Targeted / Targeted,RIBS Screening / RAS
+09-GRAS_S-13.0,44.2856,-74.96257,South Branch Grass River,Non-Targeted / Targeted,RIBS Screening / RAS
+09-GRAS_S-27.3,44.2481,-74.78316,South Branch Grass River,Non-Targeted / Targeted,RIBS Screening / RAS
+09-GRAS_ST24-1.4,44.26039,-74.89072,Unnamed Tributary To South Branch Grass River,Non-Targeted / Targeted,RIBS Screening / RAS
+09-GTCH-93.9,44.23167,-75.08888,Oswegatchie River,Non-Targeted / Targeted,RIBS Screening / RAS
+09-GTCH_M-12.3,44.068172,-75.227515,Middle Branch Oswegatchie River,Non-Targeted / Targeted,RIBS Screening / RAS
+09-GTCH_M_T2-0.1,44.09081,-75.29247,Unnamed Tributary To Middle Branch Oswegatchie River,Non-Targeted / Targeted,RIBS Screening / RAS
+09-GTCH_M_T6-0.4,44.085903,-75.25591,Unnamed Tributary To Middle Branch Oswegatchie River,Non-Targeted / Targeted,RIBS Screening / RAS
+09-GTCH_W-49.1,43.991823,-75.177893,West Branch Oswegatchie River,Non-Targeted / Targeted,RIBS Screening / RAS
+09-HATC-2.9,44.68361,-74.19055,Hatch Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+09-HOPI-0.8,44.69722,-74.70722,Hopkinton Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+09-LEAGL-0.0,44.66883,-74.27214,Eagle Pond,Non-Targeted / Targeted,RIBS Screening / RAS
+09-LHRSH-0.0,44.131802,-74.621002,Horseshoe Lake Deep Hole,Non-Targeted / Targeted,RIBS Screening / RAS
+09-LLTUP-0.0,44.041047,-74.605496,Little Tupper Lake,Non-Targeted / Targeted,RIBS Screening / RAS
+09-LRBWF-0.0,44.509602,-74.789703,Rainbow Falls Reservoir,Non-Targeted / Targeted,RIBS Screening / RAS
+09-LSILV-0.0,44.227403,-74.826919,Silver Lake,Non-Targeted / Targeted,RIBS Screening / RAS
+09-LTTL-10.2,44.1431,-75.02764,Little River,Non-Targeted / Targeted,RIBS Screening / RAS
+09-LTTL-13.2,44.16619,-75.00215,Little River,Non-Targeted / Targeted,RIBS Screening / RAS
+09-LTTL-2.0,44.19305,-75.06889,Little River,Non-Targeted / Targeted,RIBS Screening / RAS
+09-LTTL_T12-0.4,44.150418,-75.1102,Unnamed Tributary To Little River,Non-Targeted / Targeted,RIBS Screening / RAS
+09-MARA-4.5,43.836755,-74.563743,Marion River,Non-Targeted / Targeted,RIBS Screening / RAS
+09-MOOK-2.3,44.1425,-74.12902,Moose Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+09-MUPO-0.8,43.903349,-74.43669,Mud Pond Outlet,Non-Targeted / Targeted,RIBS Screening / RAS
+09-OSGO-6.6,44.48528,-74.27471,Osgood River,Non-Targeted / Targeted,RIBS Screening / RAS
+09-OZON-0.7,44.67528,-74.60167,Lake Ozonia Outlet,Non-Targeted / Targeted,RIBS Screening / RAS
+09-PALC-2.5,44.043935,-75.223674,Palmer Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+09-PLET-3.8,44.329646,-74.893547,Pleasant Lake Stream,Non-Targeted / Targeted,RIBS Screening / RAS
+09-RAGG-3.3,44.68969,-74.10788,Unnamed Tributary To Ragged Lake,Non-Targeted / Targeted,RIBS Screening / RAS
+09-RAQU-105.0,44.236904,-74.40019,Raquette River,Non-Targeted / Targeted,RIBS Screening / RAS
+09-RAQU-80.9,44.314314,-74.665562,Raquette River,Non-Targeted / Targeted,RIBS Screening / RAS
+09-RAQU-89.9,44.253575,-74.595852,Raquette River,Non-Targeted / Targeted,RIBS Screening / RAS
+09-RAQU-92.7,44.23167,-74.55778,Raquette River,Non-Targeted / Targeted,RIBS Screening / RAS
+09-RAQU_T69-0.7,44.35561,-74.73653,Unnamed Tributary To Raquette River,Non-Targeted / Targeted,RIBS Screening / RAS
+09-REGI-64.0,44.523049,-74.49203,Saint Regis River,Non-Targeted / Targeted,RIBS Screening / RAS
+09-REGI_E-5.8,44.67333,-74.4275,East Branch St. Regis River,Non-Targeted / Targeted,RIBS Screening / RAS
+09-REGI_T80-0.1,44.4526,-74.37303,Unnamed Tributary To St.Regis River,Non-Targeted / Targeted,RIBS Screening / RAS
+09-SDSH-2.1,44.69111,-73.9525,Standish Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+09-SDSH-2.7,44.688938,-73.941967,Standish Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+09-SEPA-0.9,44.75167,-73.93416,Separator Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+09-SEPA-4.3,44.71878,-73.89908,Separator Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+09-SREG-0.2,44.440378,-74.23191,Unnamed Tributary To Upper St. Regis Lake,Non-Targeted / Targeted,RIBS Screening / RAS
+09-STNH-1.0,44.55449,-74.66797,Stoney Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+09-STRB-0.2,44.42603916,-74.3452637,St. Regis Brook,Targeted,RMN
+09-STTK-1.3,44.324,-74.843,Stony Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+09-WARD-2.7,44.185,-74.1844,Ward Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-ADKS11_103-1.6,43.67374,-73.62859,Round Pond Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-ADKS11_171-0.2,44.18132,-73.82802,Bear Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-ADKS11_2004-2.5,44.38991,-73.8975,Unnamed Tributary To Frenchs Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-ADKS11_2005-3.2,44.41785,-73.8672,Unnamed Tributary To Frenchs Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-ADKS11_2006-3.1,44.3771,-73.90129,Unnamed Tributary To Frenchs Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-ADKS11_2007-2.5,44.1957,-73.8459,Unnamed Tributary To Slide Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-ADKS11_2011-0.7,44.15621,-73.94629,Phelps Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-ADKS11_206-0.2,44.1645,-73.78214,Deer Falls Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-ADKS12_105-1.2,44.305556,-73.814722,Liscomb Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-ADKS12_110-0.7,44.466111,-73.886389,Unnamed Tributary To Taylor Pond,Non-Targeted / Targeted,RIBS Screening / RAS
+10-ADKS12_123-0.5,44.286667,-74.069444,Unnamed Tributary To  Ray Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-ADKS12_151-0.1,44.138611,-73.637222,Stevens Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-ADKS12_183-0.3,44.228889,-73.745278,Unnamed Tributary To Spruce Hill Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-ADKS12_184-1.0,44.411389,-73.81083,Unnmaed Tributary To West Branch Ausable River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-ADKS12_2000-2.7,44.178333,-73.73277,Putnam Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-ADKS12_2001-0.8,44.120556,-73.83972,Unnamed Tributary To East Branch Ausable River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-ADKS12_2002-3.3,44.1025,-73.820278,Gill Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-ADKS12_2008-1.9,44.161111,-73.81166,Deer Falls Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-ADKS12_2012-2.8,44.165556,-73.9025,Klondike Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-ADKS12_240-0.1,44.080556,-73.491389,Bartlett Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-ADKS12_249-4.7,44.178889,-73.494722,Hoisington Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-ADKS12_257-0.7,44.41706,-73.912503,Unnamed Tributary To Frenchs Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-ADKS12_276-1.4,44.391111,-73.858889,White Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-ADKS12_78-0.8,44.23,-73.736389,Unnamed Tributary To Spruce Hill Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-ADKS12_83-1.1,44.411944,-73.566944,Unnamed Tributary To Durgan Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-ADKS12_98-1.0,44.287778,-73.76888,Unnamed Tributary To Styles Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-ALDE-0.7,44.57167,-73.94384,Alder Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-ALDE_T15-0.6,44.498208,-74.008785,Unnamed Tributary To Alder Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-BEAW-2.3,44.23364,-73.38267,Beaver Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-BEHA-1.0,44.67302,-73.72732,Behan Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-BLAR-1.1,44.23422,-73.51052,Black River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-BLBR-2.4,44.45861,-73.74333,Black Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-BOQT-10.8,44.264529,-73.4012,Boquet River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-BOQT-13.7,44.24111,-73.43,Boquet River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-BOQT-15.0,44.22528,-73.44028,Boquet River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-BOQT-2.6,44.36389,-73.390881,Boquet River,Targeted,RIBS Routine
+10-BOQT-2.8,44.361742,-73.391577,Boquet River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-BOQT-23.2,44.24826,-73.52014,Boquet River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-BOQT-28.5,44.22003,-73.58552,Boquet River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-BOQT-28.6,44.21778,-73.58556,Boquet River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-BOQT-37.2,44.14694,-73.62695,Boquet River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-BOQT-41.7,44.10583,-73.68584,Boquet River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-BOQT_N-3.3,44.32278,-73.44695,North Branch Boquet River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-BRAY-1.5,44.806416,-73.724275,Brandy Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-BRNC-0.4,44.21667,-73.59025,The Branch,Non-Targeted / Targeted,RIBS Screening / RAS
+10-BURP-3.7,44.25561,-73.59038,Burpee Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-CADE-0.1,44.2625,-73.79583,Cascade Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-CARN-1.2,44.45468,-73.56276,Carney Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-CBRK-0.2,44.5875,-73.90833,Cold Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-CBRK_E-0.6,44.63298,-73.91543,East Branch Cold Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-CHAT-0.7,43.80167,-73.39444,Charter Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-CHLS-0.6,43.857407,-73.447807,Chilson Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-CHUB-0.4,44.271182,-73.961535,Chubb River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-CHUB-5.0,44.262096,-74.01454,Chubb River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-CHUB_T4-0.6,44.268489,-73.98853,Unnamed Tributary To Chubb River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-CHUB_T4-0.7,44.267337,-73.98942,Unnamed Tributary To Chubb River. Control Strm 2; Us,Non-Targeted / Targeted,RIBS Screening / RAS
+10-CLIF-0.1,44.284907,-73.78886,Clifford Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-CMIL-3.3,43.722127,-73.418303,Mill Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-COLW-0.7,44.32675,-73.48008,Cold Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-DART-0.1,44.256252,-73.79383,Dart Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-DLET-0.1,44.7403,-73.8352,Deep Inlet Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-DLET-2.4,44.72041,-73.87015,Deep Inlet Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-DODD-0.2,43.73778,-73.50472,Dodd Hill Road Stream,Non-Targeted / Targeted,RIBS Screening / RAS
+10-DODD-1.0,43.74167,-73.51638,Dodd Hill Road Stream,Non-Targeted / Targeted,RIBS Screening / RAS
+10-DODD-1.4,43.74333,-73.52306,Dodd Hill Road Stream,Non-Targeted / Targeted,RIBS Screening / RAS
+10-DUTT-0.6,44.25187,-74.2381,Dutton Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-ENBR-0.7,43.43639,-73.71917,English Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-FICK-1.1,44.3298,-74.187,Fish Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+10-FICK_T1-1.0,44.347602,-74.183973,Unnamed Tributary To Fish Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+10-FINK-0.7,43.56667,-73.66,Finkle Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-FLOS-0.1,44.328052,-74.38799,Floodwood Passage,Non-Targeted / Targeted,RIBS Screening / RAS
+10-FMIL-2.1,43.88111,-73.42278,Fivemile Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+10-GCHZ-41.2,44.7827,-73.76634,Great Chazy River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-GILB-0.4,44.13865,-73.79723,Gill Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-GULB-0.1,44.256772,-73.79242,Gulf Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-GULB-0.6,44.25714,-73.78291,Gulf Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-HAGE-0.2,43.74569,-73.49889,Hague Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-HALF-7.9,43.39472,-73.55722,Halfway Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+10-HALF_T2-4.3,43.471629,-73.504537,Unnamed Tributary To Halfway Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+10-HLET-1.3,43.630542,-73.492534,Unnamed Tributary To Lake George,Non-Targeted / Targeted,RIBS Screening / RAS
+10-HOIS-0.1,44.18417,-73.43416,Hoisington Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-HOLC-0.2,44.286867,-73.93226,Holcomb Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-HUDD-0.2,43.53695,-73.66777,Huddle Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-INBR-0.1,43.5875,-73.64167,Indian Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-INBR-1.5,43.60162,-73.65685,Indian Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-JACK-0.2,44.44361,-73.67389,Jackson Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-JONS-0.8,44.18977,-73.79871,Johns Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-LAUGR-0.0,44.47028,-73.49528,Augur Lake,Non-Targeted / Targeted,RIBS Screening / RAS
+10-LBBR-0.1,44.42667,-73.75472,Little Black Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-LCHM_T117-1.0,43.638247,-73.44596,Unnamed Tributary To Lake Champlain,Non-Targeted / Targeted,RIBS Screening / RAS
+10-LCHU-2.0,43.84945,-73.4211,La Chute River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-LG55-0.4,43.55695,-73.65861,Unnamed Tributary To Lake George,Non-Targeted / Targeted,RIBS Screening / RAS
+10-LGEO_T37-0.2,43.417164,-73.69941,Unnamed Tributary To Lake George,Non-Targeted / Targeted,RIBS Screening / RAS
+10-LGEO_T62-0.2,43.611,-73.628,Unnamed Tributary To Lake George,Non-Targeted / Targeted,RIBS Screening / RAS
+10-LGEO_T78-0.1,43.666,-73.515,Unnamed Tributary To Lake George,Non-Targeted / Targeted,RIBS Screening / RAS
+10-LINC-2.6,44.428261,-73.94434,Lincoln Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-LMIRR-0.0,44.29131,-73.98299,Mirror Lake,Non-Targeted / Targeted,RIBS Screening / RAS
+10-LRNC_03-0.2,44.56694,-73.42555,Ausable River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-LSAB-17.6,44.49222,-73.59361,Little Ausable River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-LSAB-23.4,44.494557,-73.64758,Little Ausable River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-LSAR_T10-0.3,44.329961,-74.28817,Unnamed Tributary To Upper Saranac Lake,Non-Targeted / Targeted,RIBS Screening / RAS
+10-LSLYP-0.0,43.454622,-73.590074,Sly Pond,Non-Targeted / Targeted,RIBS Screening / RAS
+10-LTRO-0.9,44.47639,-73.42916,Little Trout Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-MCGU-0.3,44.41922,-73.49546,Mcguire Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-MCKN-0.2,44.03583,-73.46221,Mckenzie Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-MCKN-6.4,44.032147,-73.54283,Mckenzie Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-MDAU-4.0,44.47979,-73.46387,Mud Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-MILC-0.2,44.05194,-73.45555,Mill Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-MILC-3.6,44.060296,-73.500379,Mill Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-MILC-6.3,44.05314,-73.53894,Mill Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-MKEN-1.4,44.253198,-74.22255,Mckenna Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-MKEN-2.8,44.2346,-74.2225,Mckenna Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-MKZI-0.8,44.314827,-74.105152,Mckenzie Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-MULB-0.2,44.10118,-73.44846,Mullen Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-NBAY-1.3,43.62695,-73.60777,Northwest Bay Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-NBAY-6.5,43.692,-73.592,Northwest Bay Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-NICO-1.0,44.269447,-73.835122,Nichols Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-NMOW_T1-1.7,44.236531,-73.91316,Unnamed Tributary To North Meadow Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-NMOW_T1-1.8,44.237192,-73.912338,Unnamed Tributary To North Meadow Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-NSAR-2.1,44.5923,-73.8754,North Branch Saranac River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-NSAR-21.2,44.5115,-74.14827,North Branch Saranac River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-NSAR-9.0,44.574847,-73.986187,North Branch Saranac River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-NSAR_T31-2.0,44.532379,-74.158709,Unnamed Tributary To North Branch Saranac River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-NSAR_T7-0.8,44.571,-73.97419,Unnamed Tributary To North Branch Saranac River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-OUTL-0.1,44.28056,-73.99556,Outlet Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-PALM-0.1,44.45278,-73.68389,Palmer Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-PHEP-0.2,44.19972,-73.77944,Phelps Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-PIKE-0.9,43.5589,-73.47149,Pike Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-PUTM-13.2,43.87472,-73.54056,Putnam Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+10-PUTM-3.1,43.95056,-73.45778,Putnam Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+10-PUTM-4.5,43.94124,-73.473716,Putnam Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+10-PUTM_T5-0.3,43.9359,-73.5363,Unnamed Tributary To Putnam Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+10-RAYB-3.9,44.29361,-74.06972,Ray Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-RAYB_T4-0.2,44.29463,-74.06283,Unnamed Tributary To  Ray Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-RILY-1.6,43.825,-73.49337,Riley Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-ROCY-0.1,44.371,-73.71638,Rocky Branch Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-RORB-0.1,44.27555,-73.93693,Roaring Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-RORE-2.3,44.174475,-73.65014,Roaring Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-RORE-4.7,44.17349,-73.69146,Roaring Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SABL-13.1,44.48221,-73.55639,Ausable River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SABL-14.6,44.464375,-73.575255,Ausable River,Targeted,RIBS Routine
+10-SABL-14.7,44.465,-73.575,Ausable River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SABL-19.3,44.44932,-73.65453,Ausable River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SABL-2.2,44.55889,-73.44917,Ausable River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SABL-7.6,44.504102,-73.481615,Ausable River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SABL_E-0.4,44.43778,-73.67805,East Branch Ausable River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SABL_E-1.9,44.41817,-73.67925,East Branch Ausable River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SABL_E-13.5,44.298624,-73.79453,East Branch Ausable River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SABL_E-17.2,44.25583,-73.79511,East Branch Ausable River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SABL_E-20.9,44.22129,-73.78608,East Branch Ausable River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SABL_E-22.9,44.188551,-73.78397,East Branch Ausable River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SABL_E-23.3,44.19417,-73.78554,East Branch Ausable River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SABL_E-25.8,44.1634,-73.7784,East Branch Ausable River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SABL_E-5.8,44.377233,-73.71493,East Branch Ausable River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SABL_E-7.6,44.366064,-73.73314,East Branch Ausable River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SABL_E_T18-0.1,44.320855,-73.77846,Unnamed Tributary To East Branch Ausable River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SABL_W-0.2,44.44139,-73.67693,West Branch Ausable River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SABL_W-0.3,44.4422,-73.68049,West Branch Ausable River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SABL_W-10.3,44.388731,-73.8178,West Branch Ausable River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SABL_W-12.9,44.365,-73.84389,West Branch Ausable River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SABL_W-14.2,44.35139,-73.86222,West Branch Ausable River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SABL_W-15.1,44.347661,-73.878711,West Branch Ausable River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SABL_W-16.8,44.33389,-73.90221,West Branch Ausable River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SABL_W-17.8,44.32222,-73.9136,West Branch Ausable River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SABL_W-18.6,44.312591,-73.91477,West Branch Ausable River. River Smpl 3; Abrasive,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SABL_W-20.7,44.29944,-73.93027,West Branch Ausable River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SABL_W-23.0,44.27611,-73.93776,West Branch Ausable River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SABL_W-24.0,44.2675,-73.94972,West Branch Ausable River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SABL_W-25.6,44.25722,-73.9625,West Branch Ausable River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SABL_W-8.0,44.404,-73.783,West Branch Ausable River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SABL_W-9.9,44.38873,-73.8178,West Branch Ausable River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SABL_W_T13-0.1,44.382641,-73.82927,Unnamed Tributary To West Branch Ausable River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SABL_W_T13-0.2,44.383231,-73.83041,Unnamed Tributary To West Branch Ausable River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SABL_W_T14-0.2,44.372134,-73.83521,Unnamed Tributary To West Branch Ausable River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SABL_W_T14-0.3,44.372709,-73.836691,Unnamed Tributary To West Branch Ausable River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SABL_W_T26-0.1,44.312151,-73.914701,Unnamed Tributary To West Branch Ausable River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SABL_W_T26-0.2,44.312082,-73.914339,Unnamed Tributary To West Branch Ausable River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SABL_W_T27-0.1,44.304024,-73.92061,Unnamed Tributary To West Branch Ausable River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SABL_W_T27-0.2,44.302894,-73.920409,Unnamed Tributary To West Branch Ausable River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SAMN-16.2,44.60094,-73.66999,Salmon River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SAMN-18.1,44.589022,-73.69958,Salmon River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SARA-21.8,44.64778,-73.74693,Saranac River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SARA-23.6,44.638003,-73.75594,Saranac River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SARA-34.1,44.5452,-73.86999,Saranac River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SARA-46.3,44.40139,-74.03527,Saranac River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SARA-48.1,44.39489,-74.05654,Saranac River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SARA-54.7,44.33222,-74.12499,Saranac River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SARA_T19-0.1,44.61015,-73.79464,Unnamed Tributary To Saranac River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SARA_T57-0.2,44.323227,-74.12111,Unnamed Tributary To Saranac River,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SARS-0.1,44.38182,-74.23687,Unnamed Tributary To Lake Clear,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SBBK-0.5,44.2067,-73.68389,South Branch Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SENT-0.1,44.34922,-73.86702,Sentinel Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SENT-0.3,44.34693,-73.869134,Sentinel Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SMIB-0.5,43.482507,-73.694585,Smith Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SMOW-1.4,44.19959,-73.91331,South Meadow Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SOUL-1.0,44.70483,-73.819709,South Inlet To Chazy Lake,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SPEC-0.2,43.523613,-73.50909,Spectacle Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SPRU-0.7,44.30556,-73.4886,Spruce Mill Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SPRU-14.6,44.277789,-73.67225,Spruce Mill Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-SPRU-6.8,44.267737,-73.55074,Spruce Mill Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-STYL-3.6,44.30145,-73.72594,Styles Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-THAD-1.6,43.455837,-73.56182,Unnamed Tributary To Hadlock Pond,Non-Targeted / Targeted,RIBS Screening / RAS
+10-THAF-2.6,43.405575,-73.57749,Unnamed Tributary To Hadlock Pond,Non-Targeted / Targeted,RIBS Screening / RAS
+10-TROK-0.1,43.84444,-73.43306,Trout Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-TRUB-0.7,44.63722,-73.77028,True Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-TWOB-1.3,44.40855,-74.08426,Twobridge Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+10-TWOB-3.6,44.4123,-74.1113,Twobridge Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-TWOB-3.7,44.41222,-74.11166,Twobridge Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+10-WESB-1.4,44.59305,-73.9868,West Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-WHIF-1.6,44.35201,-73.92366,Whiteface Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-WSBR-0.2,43.41833,-73.71083,West Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-WSBR-0.5,43.4163,-73.717,West Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+10-WSBR-1.0,43.41195,-73.725,West Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+11-ADKS_41-0.2,43.39889,-74.30028,Unnamed Tributary To Sacandaga River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-ADKS_43-0.1,43.39861,-74.63611,Unnamed Tributary To Piseco Lake Outlet,Non-Targeted / Targeted,RIBS Screening / RAS
+11-ADKS_44-0.5,43.62472,-74.40388,Unnamed Tributary To Miami River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-ADKS_45-0.8,43.50139,-74.31084,Unnamed Tributary To Sacandaga River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-ADKS_47-0.8,43.51333,-74.15833,Unnamed Tributary To East Branch Sacandaga River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-ADKS_48-0.9,43.305,-74.20361,Unnamed Tributary To East Stony Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+11-ADKS_49-0.3,43.36083,-74.32667,Unnamed Tributary To West Branch Sacandaga River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-ADKS_52-3.3,43.42861,-74.31778,Elbow Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+11-ADKS_53-0.7,43.43972,-74.46806,Unnamed Tributary To Piseco Lake Outlet,Non-Targeted / Targeted,RIBS Screening / RAS
+11-ADKS11_08-0.7,43.87746,-73.88422,Unnamed Tributary To West Br.,Non-Targeted / Targeted,RIBS Screening / RAS
+11-ADKS11_120-0.9,43.5014,-74.3108,Unnamed Tributary To Sacandaga River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-ADKS11_147-0.5,43.84036,-74.43049,Unnamed Tributary To Cedar River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-ADKS11_156-0.1,43.96827,-74.05109,Unnamed Tributary To Upper  Hudson River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-ADKS11_16-0.2,43.39841,-74.30006,Unnamed Tributary To Sacandaga River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-ADKS11_165-0.1,43.71979,-74.064,Unnamed Tributary To Balm Of Gilead Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+11-ADKS11_166-1.5,43.69683,-74.06022,Unnamed TributaryTo East Branch Sacandaga River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-ADKS11_168-0.8,43.51344,-74.15853,Unnamed Tributary To East Branch Sacandaga River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-ADKS11_176-0.9,43.30468,-74.20325,Unnamed Tributary To East Stony Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+11-ADKS11_180-0.6,43.8625,-73.76226,Unnamed Tributary To Schroon,Non-Targeted / Targeted,RIBS Screening / RAS
+11-ADKS11_2009-0.3,44.12647,-73.98434,Cold Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+11-ADKS11_2010-0.3,44.13723,-73.96066,Unnamed Tributary To Avalanche Lake,Non-Targeted / Targeted,RIBS Screening / RAS
+11-ADKS11_209-0.1,43.36115,-74.32703,Unnamed Tributary To West Branch Sacandaga River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-ADKS11_212-0.1,43.8206,-74.34824,Unnamed Tributary To Cedar River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-ADKS11_245-1.4,43.77886,-73.91409,Unnamed Tributary To Trout Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+11-ADKS11_247-2.1,43.42315,-74.30125,Elbow Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+11-ADKS11_262-0.7,43.43992,-74.46825,Unnamed Tributary To Piseco Lake Outlet,Non-Targeted / Targeted,RIBS Screening / RAS
+11-ADKS11_262-0.7,43.44016504,-74.4682688,Unnamed Tributary To Piseco Lake Outlet,Non-Targeted / Targeted,RIBS Screening / RAS
+11-ADKS11_278-0.8,43.5933,-73.84997,Unnamed Tributary To Upper  Hudson River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-ADKS11_46-1.6,43.79996,-73.96865,Unnamed Tributary To Minerva Stream,Non-Targeted / Targeted,RIBS Screening / RAS
+11-ADKS11_60-0.2,43.39836,-74.63679,Unnamed Tributary To Piseco Lake Outlet,Non-Targeted / Targeted,RIBS Screening / RAS
+11-ADKS11_63-0.6,43.80576,-74.31699,Unnamed Tributary To Cedar River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-ADKS11_72-0.4,43.62499,-74.40435,Unnamed Tributary To Miami River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-ADKS12_113-0.8,44.001389,-73.721389,Walker Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+11-ADKS12_258-1.1,44.058333,-73.685556,Lindsay Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+11-ARCH-1.9,43.99733,-74.24594,Archer Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+11-BACH-0.1,43.20833,-74.08082,Batcheller Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+11-BECH-0.2,43.22083,-74.10027,Beecher Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+11-BGBK-1.0,43.4715328,-73.78353923,Big Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+11-BGBK-1.0,43.47167,-73.78361,Big Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+11-BLBK-0.1,43.98611,-73.71584,Black Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+11-BOLT-0.1,43.65384538,-73.80593672,Bolster Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+11-BOLT-0.1,43.654,-73.806,Bolster Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+11-BORE-1.8,43.81683628,-74.06085583,Boreas River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-BORE-1.8,43.81667,-74.06111,Boreas River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-BRAN-1.5,43.95639,-73.76388,The Branch,Non-Targeted / Targeted,RIBS Screening / RAS
+11-BROB-0.3,43.783,-74.427,Browns Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+11-BROB-0.3,43.78352681,-74.42626155,Browns Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+11-CEDR-14.3,43.78333,-74.32082,Cedar River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-CEDR-14.3,43.78375672,-74.32009201,Cedar River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-CHST-0.2,43.67417,-73.77861,Chester Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+11-CHST-2.5,43.656,-73.801,Chester Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+11-DALY-1.3,43.26889,-73.95472,Daley Cr.,Non-Targeted / Targeted,RIBS Screening / RAS
+11-DERC-2.7,43.77611,-74.02917,Deer Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+11-DERC-2.7,43.77620978,-74.0288637,Deer Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+11-DOIG-4.5,43.37528642,-74.21977269,Doig Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+11-DURG-0.2,43.93982705,-73.95338383,Durgin Brook,Targeted,RMN
+11-DURT-0.2,43.8375,-74.38499,Lake Durant Trib,Non-Targeted / Targeted,RIBS Screening / RAS
+11-ELPH-0.1,43.14931643,-74.28194102,Elphee Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+11-ESTN-3.4,43.29508,-74.19261,East Stony Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+11-ESTN-3.4,43.29514093,-74.1927258,East Stony Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+11-ESTN-5.3,43.31528,-74.17833,East Stony Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+11-FISB-12.8,43.97781635,-74.33664987,Fishing Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+11-FISB-12.8,43.97806,-74.33667,Fishing Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+11-FISB-8.4,43.977386,-74.27055,Fishing Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+11-FREC-0.1,43.105,-74.16221,Frenchman Cr.,Non-Targeted / Targeted,RIBS Screening / RAS
+11-GLNC-0.4,43.58556,-73.86999,Glen Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+11-HANC-0.2,43.12056,-74.13778,Hans Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+11-HANC-1.3,43.12361,-74.11945,Hans Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+11-HANC-3.1,43.12305,-74.09028,Hans Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+11-HANC-4.3,43.13075,-74.0755,Hans Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+11-HOLO-0.5,43.18167,-74.35889,Holmes Lake Outlet,Non-Targeted / Targeted,RIBS Screening / RAS
+11-INDI-0.9,43.81611,-74.2075,Indian River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-INDI-0.9,43.81671931,-74.20622184,Indian River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-JESS-2.0,43.5825,-74.40667,Jessup River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-JESS-2.0,43.58259779,-74.40676717,Jessup River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-KENY-1.8,43.46361,-73.93611,Kenyontown,Non-Targeted / Targeted,RIBS Screening / RAS
+11-KUNJ-5.8,43.56320136,-74.30764597,Kunjamuk River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-KUNJ-5.8,43.56306,-74.30749,Kunjamuk River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-KYET-7.5,43.07514,-74.142633,Kennyetto Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+11-LANG-0.2,43.481949,-74.068341,Langworthy Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+11-LFRIE-0.0,43.63889,-73.84028,Friends Lake,Non-Targeted / Targeted,RIBS Screening / RAS
+11-LGILM-0.0,43.4648,-74.31546,Gilman Lake,Non-Targeted / Targeted,RIBS Screening / RAS
+11-LLEWE-0.0,43.639305,-74.39821,Lewey Lake,Non-Targeted / Targeted,RIBS Screening / RAS
+11-LPECK-0.0,43.110599,-74.4133,Peck Lake,Non-Targeted / Targeted,RIBS Screening / RAS
+11-LRNC_21-20.2,43.25167,-73.83611,Hudson River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-LRNC_37-31.3,43.23111,-74.18639,Sacandaga River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-LRNC_40-0.1,43.48083,-73.81416,Schroon River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-LROND-0.0,43.79,-74.2624,Adirondack Lake,Non-Targeted / Targeted,RIBS Screening / RAS
+11-MIAM-6.9,43.56778,-74.46694,Miami River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-MILW-2.4,43.63528,-73.92916,Mill Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+11-MIRV-1.0,43.77361,-73.91917,Minerva Stream,Non-Targeted / Targeted,RIBS Screening / RAS
+11-MLHD-0.2,43.76417,-73.75528,Mill Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+11-NORH-0.6,43.69361,-73.98778,North Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+11-NORH-1.2,43.68667,-73.98943,North Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+11-PATR-0.2,43.49445,-73.81166,Patterson Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+11-PAUL-0.2,43.31111,-74.01222,Paul Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+11-PAUL-2.4,43.31884,-74.0151,Paul Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+11-PAUL-2.4,43.31842254,-74.0153478,Paul Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+11-PDOX-1.9,43.90944,-73.64388,Paradox Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+11-PERP-0.8,43.980992,-74.03424,Perch Pond Outlet,Non-Targeted / Targeted,RIBS Screening / RAS
+11-PUTA-1.0,43.556,-73.992,Putnam Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+11-PUTA-1.0,43.55490076,-73.99204787,Putnam Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+11-ROAB-0.8,43.4229,-73.94168,Roaring Branch,Non-Targeted / Targeted,RIBS Screening / RAS
+11-ROAB-0.8,43.42249649,-73.94152293,Roaring Branch,Non-Targeted / Targeted,RIBS Screening / RAS
+11-ROCR-7.9,43.840691,-74.382799,Rock River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-ROGE-0.8,43.83694,-73.77444,Rogers Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+11-SACN-0.1,43.31361,-73.845,Sacandaga River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-SACN-0.1,43.31412213,-73.84559629,Sacandaga River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-SACN-38.0,43.3155175,-74.25353173,Sacandaga River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-SACN-38.0,43.31436,-74.252487,Sacandaga River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-SACN-50.7,43.44556,-74.25195,Sacandaga River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-SACN-55.1,43.48889,-74.27278,Sacandaga River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-SACN_E-1.6,43.45917,-74.22833,East Branch Sacandaga River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-SACN_W-2.0,43.36970487,-74.32226242,West Branch Sacandaga River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-SACN_W-2.0,43.36972,-74.32278,West Branch Sacandaga River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-SACN_W-26.4,43.2514,-74.5165,West Branch Sacandaga River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-SACN_WNB-0.1,43.25657935,-74.50448616,North Branch West Branch Sacandaga River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-SANC-0.1,43.2701,-74.05979,Sand Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+11-SCHR-2.6,43.49123,-73.77068,Schroon River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-SCHR-3.2,43.48815027,-73.76097034,Schroon River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-SCHR-3.2,43.48806,-73.76082,Schroon River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-SCHR-45.9,43.89944,-73.74889,Schroon River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-SCHR-63.2,44.043703,-73.67818,Schroon River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-SQWA-0.1,43.74060488,-74.2955746,Squaw Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+11-STDL-1.8,43.74184931,-73.64967673,Spuytenduivel Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+11-STEE-0.1,43.13248,-74.07489,Steele Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+11-STEW-2.3,43.37926875,-73.83777492,Stewart Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+11-STEW-2.3,43.379,-73.837,Stewart Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+11-STOP-0.1,43.322,-73.843,Stones Pond Outlet,Non-Targeted / Targeted,RIBS Screening / RAS
+11-STUR-0.6,43.24389,-73.83417,Sturdevant Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+11-STUR-0.6,43.24341231,-73.83415067,Sturdevant Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+11-TBRK-1.0,43.72869579,-73.8255282,Trout Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+11-TBRK-1.0,43.72722,-73.82361,Trout Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+11-TBRK-7.9,43.782,-73.89399,Trout Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+11-TEET-0.8,43.3153,-74.5559,Teeter Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+11-TEET-0.8,43.31585894,-74.55560161,Teeter Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+11-TENC-7.6,43.3717,-74.08539,Tenant Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+11-THIR-0.1,43.74445,-74.05806,Thirteenth Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+11-THIR-0.3,43.74084287,-74.06174922,Thirteenth Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+11-TOWR-0.4,43.4725336,-74.22941834,Towers Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+11-TWNS-0.2,43.32083,-73.84111,Towns Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+11-TWNS-1.1,43.32997,-73.83,Towns Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+11-UHUD-267.8,43.70090718,-73.98206737,Upper Hudson River,Targeted,RIBS Routine
+11-UHUD-273.0,43.74528,-74.05833,Upper Hudson River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-UHUD-284.9,43.82417,-74.19028,Upper Hudson River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-UHUD-286.0,43.82667,-74.19888,Upper Hudson River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-UHUD-286.0,43.82653226,-74.19937785,Upper Hudson River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-UHUD-296.7,43.96887231,-74.1158469,Hudson River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-UHUD-313.2,44.08001459,-74.05374421,Hudson River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-UHUD-64.0,43.24861,-73.8325,Upper Hudson River,Targeted,RIBS Routine
+11-UHUD-98.3,43.66167,-73.89861,Upper Hudson River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-WACK-3.8,43.91861,-74.02194,Vanderwhacker Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+11-WALDK-0.6,43.8534,-73.71579,Wilson Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+11-WLFC-0.9,43.35730083,-73.87830326,Wolf Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+11-WLFC-0.9,43.357,-73.878,Wolf Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+11-WOPO-0.6,44.03028,-74.25361,Wolf Pond Outlet,Non-Targeted / Targeted,RIBS Screening / RAS
+11-WSTN-0.1,43.254722,-74.22361,West Stony Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+11-WSTN-0.2,43.25306,-74.22471,West Stony Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+11-WSTN-9.5,43.184192,-74.336666,West Stony Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+11-WSTN_N-3.5,43.24222,-74.33194,North Branch West Stony Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+11-WSTN_N-4.6,43.2522009,-74.32859997,North Branch West Stony Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+11-WSTN_N-4.6,43.252,-74.329,North Branch West Stony Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+11-XCR-1.9,43.85583,-74.22277,Cedar River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-XCR-14.9,43.78305,-74.33194,Cedar River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-XCR-20.6,43.77945,-74.4236,Cedar River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-XCR-25.6,43.72722,-74.47166,Cedar River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-XHR-273.0,43.74445,-74.05833,Hudson River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-XHR-277.0,43.79722,-74.05,Hudson River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-XHR-282.3,43.81944,-74.13834,Hudson River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-XHR-285.0,43.82361,-74.19195,Hudson River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-XHR-286.6,43.83417,-74.19582,Hudson River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-XIR-0.1,43.8225,-74.19444,Indian River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-XIR-1.2,43.81306,-74.21028,Indian River,Non-Targeted / Targeted,RIBS Screening / RAS
+11-XIR-2.7,43.79861,-74.22945,Indian River,Non-Targeted / Targeted,RIBS Screening / RAS
+12-ADKS_42-0.2,43.22194,-74.53667,Unnamed Tributary To Canada Lake,Non-Targeted / Targeted,RIBS Screening / RAS
+12-ADKS_46-1.3,43.41444,-74.72277,Unnamed Tributary To Wilmurt Lake,Non-Targeted / Targeted,RIBS Screening / RAS
+12-ADKS_50-0.5,43.1675,-74.49445,Unnamed Tributary To Canada Lake,Non-Targeted / Targeted,RIBS Screening / RAS
+12-ADKS_51-0.1,43.38417,-74.93472,Unnamed Tributary To Mad Tom Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+12-ADKS11_124-1.7,43.41408,-74.72326,Unnamed Tributary To Wilmurt Lake Outlet,Non-Targeted / Targeted,RIBS Screening / RAS
+12-ADKS11_224-0.4,43.16624,-74.49461,Unnamed Tributary To Canada Lake,Non-Targeted / Targeted,RIBS Screening / RAS
+12-ADKS11_233-0.3,43.38652,-74.93326,Unnamed Tributary To Mad Tom Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+12-ADKS11_41-0.8,43.22274,-74.53584,Unnamed Tributary To Canada Lake,Non-Targeted / Targeted,RIBS Screening / RAS
+12-ASHC-2.8,43.31827,-74.97597,Ash Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+12-AYER-0.8,43.19083,-74.68056,Ayers Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+12-BIGW-0.1,43.43743,-74.8309,Big Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+12-BLCR-17.0,43.268501,-74.804199,Black Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+12-BLCR-19.3,43.26541,-74.778108,Black Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+12-CANE-18.1,43.18,-74.69639,East Canada Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+12-CANE-25.3,43.25722,-74.65444,East Canada Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+12-CANE-30.6,43.30972,-74.65417,East Canada Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+12-CANW-41.1,43.35444,-74.99805,West Canada Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+12-CANW-46.3,43.3745,-74.906799,West Canada Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+12-CANW-50.2,43.39556,-74.86,West Canada Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+12-CANW-52.8,43.4238,-74.83595,West Canada Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+12-CANW-72.3,43.366,-74.958,West Canada,Non-Targeted / Targeted,RIBS Screening / RAS
+12-CANW_S-6.3,43.39944,-74.74055,South Branch West Canada Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+12-CANW_T69-1.1,43.382669,-74.900615,Unnamed Tributary T69 to West Canada Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+12-FOUR-1.2,43.366,-74.89269,Fourmile Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+12-HONN-0.3,43.47083,-74.77194,Honnedaga Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+12-KRES-0.7,43.36333,-75.05333,Kreskern Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+12-LECAR-0.0,43.12884,-74.48139,East Caroga Lake,Non-Targeted / Targeted,RIBS Screening / RAS
+12-METC-2.6,43.462399,-74.723198,Metcalf Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+12-MLLK-2.5,43.27278,-74.92889,Mill Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+12-MLLK_N-1.9,43.28583,-74.9186,North Branch Mill Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+12-MOUN-3.4,43.30528,-74.94278,Mounts Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+12-NRCK-1.2,43.23139,-74.65971,North Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+12-PELA-2.2,43.1257,-74.4435,Unanamed Tributary To Peck Lake,Non-Targeted / Targeted,RIBS Screening / RAS
+12-SPCK_T15_6-0.2,43.22719,-74.786903,Unnamed Tributary of Tributary T15_6 to Spruce Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+12-SPRK-0.6,43.13055,-74.72304,Sprite Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+12-SPRK-5.3,43.130203,-74.649373,Sprite Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+12-STBR-1.0,43.278951,-74.774874,Stony Brook,Non-Targeted / Targeted,RIBS Screening / RAS
+12-TRAM-0.6,43.18833,-74.70834,Trammel Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+12-TWES-0.5,43.1586,-74.48709,Unnamed Tributary To Canada/west Lakes,Non-Targeted / Targeted,RIBS Screening / RAS
+12-WHIY-73.4,43.595501,-74.573502,Whitney Creek,Non-Targeted / Targeted,RIBS Screening / RAS
+12-WINF-0.6,43.24,-74.684,Windfall Creek,Non-Targeted / Targeted,RIBS Screening / RAS
