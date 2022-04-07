@@ -16,6 +16,8 @@ knitr::opts_chunk$set(echo = TRUE)
 This map shows all the lakes in the Adirondacks sampled by NYSDEC programs. Class A waters are distinguished by color when relevant.
 
 Ponded Waters:
+
+
 ```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
 
 # setwd("C:/Users/leneo/Dropbox/Alene/Rscripts/Current")
@@ -45,16 +47,30 @@ draft<-merge(blueline,draft,by=c("LAKE_FIN"),all = TRUE)
 draft<-draft %>% mutate(AP=ifelse(is.na(AP),"N",AP))
 
 sites<-draft %>% 
-  filter(AP=="Y") %>% 
+#  filter(AP=="Y") %>% 
   select(LAKE_HISTORY_ID,LOCATION_WATERBODY_CLASSIFICATION,LOCATION_X_COORDINATE,LOCATION_Y_COORDINATE) %>% 
   distinct() 
 library(ggmap)
 library(ggrepel)
+library(rgdal)
+library(sp)
+library(spatialEco)
+library(tidyverse)
+shapefile<-readOGR('C:/Users/leneo/Dropbox/Alene/Rscripts/SALT_Task_Force',"AdirondackParkBoundary2017", verbose = FALSE)
+#change coords to web mercator for the map
+#all of our layers are NAD83 so have to convert to web mercator
+shapefile<-sp::spTransform(shapefile, sp::CRS("+proj=longlat +datum=WGS84 +no_defs"))
+# convert to a data.frame for use with ggplot2/ggmap and plot
+data <- fortify(shapefile)
 
-nybox<-make_bbox(sites,lon=LOCATION_X_COORDINATE,lat=LOCATION_Y_COORDINATE)
+#nybox<- c(left=-75.492516,bottom=43.012065315848055,right=-73.083764,top=44.92532228434539)
+sites_map<-sites
+nybox<-make_bbox(sites_map,lon=LOCATION_X_COORDINATE,lat=LOCATION_Y_COORDINATE)
 
 print(ny.map1<-qmap(nybox,source="osm",maptype="terrain",color="bw")+
-  geom_point(data=sites,aes(x=LOCATION_X_COORDINATE,y=LOCATION_Y_COORDINATE,label=LAKE_HISTORY_ID,colour=LOCATION_WATERBODY_CLASSIFICATION),size=4))
+  geom_point(data=sites,aes(x=LOCATION_X_COORDINATE,y=LOCATION_Y_COORDINATE,label=LAKE_HISTORY_ID,colour=LOCATION_WATERBODY_CLASSIFICATION),size=2)+
+    geom_polygon(aes(x = long, y = lat, group = group), data = data,
+                 color="blue",alpha = .4, size = .3))
 
 rm(list=setdiff(ls(), c("newdata",'draft')))
 
@@ -62,6 +78,8 @@ rm(list=setdiff(ls(), c("newdata",'draft')))
 
 
 Groundwater:
+
+
 ```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
 gwsites<-read.csv("GW.data.sites.csv")
 gwsites<-gwsites %>% rename(site_no=Site_No) %>% select(site_no,Dec_Lat,Dec_Long,AP) %>% distinct()
@@ -83,21 +101,39 @@ gwdraft<-gwdraft %>%
 rm(list=setdiff(ls(), c("newdata",'draft','gwdraft')))
 
 sites<-gwdraft %>% 
-  filter(AP=="Y") %>% 
+#  filter(AP=="Y") %>% 
   rename(LOCATION_X_COORDINATE=Dec_Long,LOCATION_Y_COORDINATE=Dec_Lat) %>% 
   select(site_no,LOCATION_X_COORDINATE,LOCATION_Y_COORDINATE) %>% 
   distinct() 
 library(ggmap)
 library(ggrepel)
+library(rgdal)
+library(sp)
+library(spatialEco)
+library(tidyverse)
+shapefile<-readOGR('C:/Users/leneo/Dropbox/Alene/Rscripts/SALT_Task_Force',"AdirondackParkBoundary2017", verbose = FALSE)
+#change coords to web mercator for the map
+#all of our layers are NAD83 so have to convert to web mercator
+shapefile<-sp::spTransform(shapefile, sp::CRS("+proj=longlat +datum=WGS84 +no_defs"))
+# convert to a data.frame for use with ggplot2/ggmap and plot
+data <- fortify(shapefile)
 
-nybox<-make_bbox(sites,lon=LOCATION_X_COORDINATE,lat=LOCATION_Y_COORDINATE)
+sites_map<-sites
+nybox<-make_bbox(sites_map,lon=LOCATION_X_COORDINATE,lat=LOCATION_Y_COORDINATE)
+#nybox<- c(left=-75.492516,bottom=43.012065315848055,right=-73.083764,top=44.92532228434539)
 
 print(ny.map1<-qmap(nybox,source="osm",maptype="terrain",color="bw")+
-  geom_point(data=sites,aes(x=LOCATION_X_COORDINATE,y=LOCATION_Y_COORDINATE,label=site_no),size=4))
+  geom_point(data=sites,aes(x=LOCATION_X_COORDINATE,y=LOCATION_Y_COORDINATE,label=site_no),size=2)+
+    geom_polygon(aes(x = long, y = lat, group = group), data = data,
+                 color="blue",alpha = .4, size = .3))
+
 rm(list=setdiff(ls(), c("newdata",'draft','gwdraft')))
 ```
 
-Flowing Waters
+
+Flowing Waters:
+
+
 ```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
 sdraft<-read.csv("Stream_Chloride.csv")
 sdraft<-sdraft %>% select(site_id,sample_date,chemical_name,adj_result_value,result_unit,
@@ -121,22 +157,39 @@ sdraft<-sdraft %>% filter(!is.na(site_no)) %>%
   filter(!is.na(CHARACTERISTIC_NAME))
 
 sites<-sdraft %>% 
-  filter(AP=="Y") %>% 
+  #filter(AP=="Y") %>% 
   select(site_no,LOCATION_X_COORDINATE,LOCATION_Y_COORDINATE,LOCATION_WATERBODY_CLASSIFICATION) %>% 
   distinct() 
 library(ggmap)
 library(ggrepel)
+library(rgdal)
+library(sp)
+library(spatialEco)
+library(tidyverse)
+shapefile<-readOGR('C:/Users/leneo/Dropbox/Alene/Rscripts/SALT_Task_Force',"AdirondackParkBoundary2017", verbose = FALSE)
+#change coords to web mercator for the map
+#all of our layers are NAD83 so have to convert to web mercator
+shapefile<-sp::spTransform(shapefile, sp::CRS("+proj=longlat +datum=WGS84 +no_defs"))
+# convert to a data.frame for use with ggplot2/ggmap and plot
+data <- fortify(shapefile)
 
-nybox<-make_bbox(sites,lon=LOCATION_X_COORDINATE,lat=LOCATION_Y_COORDINATE)
+sites_map<-sites
+nybox<-make_bbox(sites_map,lon=LOCATION_X_COORDINATE,lat=LOCATION_Y_COORDINATE)
+#nybox<- c(left=-75.492516,bottom=43.012065315848055,right=-73.083764,top=44.92532228434539)
 
 print(ny.map1<-qmap(nybox,source="osm",maptype="terrain",color="bw")+
-  geom_point(data=sites,aes(x=LOCATION_X_COORDINATE,y=LOCATION_Y_COORDINATE,label=site_no,colour=LOCATION_WATERBODY_CLASSIFICATION),size=4))
+  geom_point(data=sites,aes(x=LOCATION_X_COORDINATE,y=LOCATION_Y_COORDINATE,label=site_no,colour=LOCATION_WATERBODY_CLASSIFICATION),size=2)+
+    geom_polygon(aes(x = long, y = lat, group = group), data = data,
+                 color="blue",alpha = .4, size = .3))
+
 rm(list=setdiff(ls(), c("newdata",'draft','gwdraft','sdraft')))
 ```
 
 ## Median
 
-Values are reduced to a median since 2001 for each site.
+Values are reduced to a median since 2001 for each site. The distribution within and outside the adirondack park is distinguished by color.
+
+This first plot includes all waters as well as red lines to indicate the EPA aquatic(chronic) and aquatic(acute) criteria (230mg/L and 860 mg/L respectively).
 
 ```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
 median<-draft %>% 
@@ -169,8 +222,51 @@ print(ggplot(median %>% filter(CHARACTERISTIC_NAME=="CHLORIDE"),aes(x=type,y=med
   scale_y_continuous(trans="log", breaks=c(1, 10, 100, 1000,10000)) +
   ylab("Chloride mg/L") +
   geom_hline(yintercept=230, linetype="dashed", color = "red")+
-  geom_hline(yintercept=250, linetype="dashed", color = "red")+
   geom_hline(yintercept=860, linetype="dashed", color = "red")+
+  theme(axis.title.x = element_blank(),
+  axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
+  legend.title=element_blank()))
+
+```
+
+
+
+
+This second plot includes class A waters ONLY as well as red lines to indicate the NYSDEC water quality standard for the protection of water supply use (250 mg/L).
+
+```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+median<-draft %>% 
+  filter(LOCATION_WATERBODY_CLASSIFICATION=="A") %>% 
+  group_by(LAKE_HISTORY_ID,CHARACTERISTIC_NAME,AP) %>% 
+  summarize(median=median(RSLT_RESULT_VALUE)) %>% 
+  ungroup() %>% 
+  rename(site_no=LAKE_HISTORY_ID) %>% 
+  mutate(type=ifelse(AP=="Y","ponded (within)","ponded (outside)"),
+         AP=ifelse(AP=="Y","within","outside"))
+gwmedian<-gwdraft %>% 
+  group_by(site_no,CHARACTERISTIC_NAME,AP) %>% 
+    summarize(median=median(RSLT_RESULT_VALUE)) %>% 
+  ungroup() %>% 
+  mutate(type=ifelse(AP=="Y","groundwater (within)","groundwater (outside)"),
+         AP=ifelse(AP=="Y","within","outside"))
+median<-merge(median,gwmedian,by=c('type','CHARACTERISTIC_NAME','median','AP'),all=TRUE)
+smedian<-sdraft %>% 
+  filter(LOCATION_WATERBODY_CLASSIFICATION=="A") %>% 
+  group_by(site_no,CHARACTERISTIC_NAME,AP) %>% 
+  summarize(median=median(RSLT_RESULT_VALUE)) %>% 
+  ungroup() %>% 
+  mutate(type=ifelse(AP=="Y","flowing (within)","flowing (outside)"),
+         AP=ifelse(AP=="Y","within","outside"))
+median<-merge(median,smedian,by=c('type','CHARACTERISTIC_NAME','median','AP'),all=TRUE)
+
+library(ggplot2)
+print(ggplot(median %>% filter(CHARACTERISTIC_NAME=="CHLORIDE"),aes(x=type,y=median,fill=AP)) +
+  geom_violin(width=1)+
+  scale_fill_manual(values=c("cornflowerblue", "darkolivegreen"))+
+  geom_boxplot(width=.1,color="grey")+
+  scale_y_continuous(trans="log", breaks=c(1, 10, 100, 1000,10000)) +
+  ylab("Chloride mg/L") +
+  geom_hline(yintercept=250, linetype="dashed", color = "red")+
   theme(axis.title.x = element_blank(),
   axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
   legend.title=element_blank()))
@@ -179,7 +275,9 @@ print(ggplot(median %>% filter(CHARACTERISTIC_NAME=="CHLORIDE"),aes(x=type,y=med
 
 ## Maximum
 
-Values are reduced to the maximum value observed at each location since 2001.
+Values are reduced to the maximum value observed at each location since 2001.The distribution within and outside the adirondack park is distinguished by color.
+
+This first plot includes all waters as well as red lines to indicate the EPA aquatic(chronic) and aquatic(acute) criteria (230mg/L and 860 mg/L respectively).
 
 ```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
 median<-draft %>% 
@@ -212,7 +310,6 @@ print(ggplot(median %>% filter(CHARACTERISTIC_NAME=="CHLORIDE"),aes(x=type,y=med
   scale_y_continuous(trans="log", breaks=c(1, 10, 100, 1000,10000)) +
   ylab("Chloride mg/L") +
   geom_hline(yintercept=230, linetype="dashed", color = "red")+
-  geom_hline(yintercept=250, linetype="dashed", color = "red")+
   geom_hline(yintercept=860, linetype="dashed", color = "red")+
   theme(axis.title.x = element_blank(),
   axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
@@ -220,5 +317,49 @@ print(ggplot(median %>% filter(CHARACTERISTIC_NAME=="CHLORIDE"),aes(x=type,y=med
 
 
 
+
+```
+
+
+
+
+This second plot includes class A waters ONLY as well as red lines to indicate the NYSDEC water quality standard for the protection of water supply use (250 mg/L).
+
+```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+median<-draft %>% 
+  filter(LOCATION_WATERBODY_CLASSIFICATION=="A") %>% 
+  group_by(LAKE_HISTORY_ID,CHARACTERISTIC_NAME,AP) %>% 
+  summarize(median=max(RSLT_RESULT_VALUE)) %>% 
+  ungroup() %>% 
+  rename(site_no=LAKE_HISTORY_ID) %>% 
+  mutate(type=ifelse(AP=="Y","ponded (within)","ponded (outside)"),
+         AP=ifelse(AP=="Y","within","outside"))
+gwmedian<-gwdraft %>% 
+  group_by(site_no,CHARACTERISTIC_NAME,AP) %>% 
+    summarize(median=max(RSLT_RESULT_VALUE)) %>% 
+  ungroup() %>% 
+  mutate(type=ifelse(AP=="Y","groundwater (within)","groundwater (outside)"),
+         AP=ifelse(AP=="Y","within","outside"))
+median<-merge(median,gwmedian,by=c('type','CHARACTERISTIC_NAME','median','AP'),all=TRUE)
+smedian<-sdraft %>% 
+  filter(LOCATION_WATERBODY_CLASSIFICATION=="A") %>% 
+  group_by(site_no,CHARACTERISTIC_NAME,AP) %>% 
+  summarize(median=max(RSLT_RESULT_VALUE)) %>% 
+  ungroup() %>% 
+  mutate(type=ifelse(AP=="Y","flowing (within)","flowing (outside)"),
+         AP=ifelse(AP=="Y","within","outside"))
+median<-merge(median,smedian,by=c('type','CHARACTERISTIC_NAME','median','AP'),all=TRUE)
+
+library(ggplot2)
+print(ggplot(median %>% filter(CHARACTERISTIC_NAME=="CHLORIDE"),aes(x=type,y=median,fill=AP)) +
+  geom_violin(width=1)+
+  scale_fill_manual(values=c("cornflowerblue", "darkolivegreen"))+
+  geom_boxplot(width=.1,color="grey")+
+  scale_y_continuous(trans="log", breaks=c(1, 10, 100, 1000,10000)) +
+  ylab("Chloride mg/L") +
+  geom_hline(yintercept=250, linetype="dashed", color = "red")+
+  theme(axis.title.x = element_blank(),
+  axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
+  legend.title=element_blank()))
 
 ```

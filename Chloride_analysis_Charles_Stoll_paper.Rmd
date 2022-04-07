@@ -346,6 +346,8 @@ rm(list=setdiff(ls(), c("newdata",'draft','full')))
 
 Percentage of sites with at least one excursion.
 This is simply the number of sites with excursions divided by the total number of sites and multiplied by 100.
+For class A waters, the excursion level is 250 mg/L.
+When I examined all class waters, I used EPA's 304a acute threshold at 230 mg/L.
 ```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
 excursion<-full %>% 
   mutate(LOCATION_WATERBODY_CLASSIFICATION=
@@ -380,7 +382,7 @@ excursion_all<-full %>%
   mutate(class="All Class Waters") %>% 
   spread(class,frequency)
 excursion_all1<-full %>% 
-  mutate(excursion=ifelse(maxvalue>250,1,0)) %>% 
+  mutate(excursion=ifelse(maxvalue>230,1,0)) %>% 
   rename(`Aggregate Level`=agg_state) %>% 
   select(`Aggregate Level`,LAKE_HISTORY_ID,excursion) %>% distinct() %>% 
   group_by(`Aggregate Level`) %>% 
